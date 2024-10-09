@@ -10,6 +10,7 @@ import {
   OtherScreen,
   MessageScreen,
   AccountScreen,
+  ListFacultyScreen,
 } from "../pages";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -36,6 +37,7 @@ const Router = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="LoginScreen" component={LoginScreen} />
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Screen name="ListFacultyScreen" component={ListFacultyScreen} />
       <Stack.Screen name="MainApp" component={MainApp} />
     </Stack.Navigator>
   );

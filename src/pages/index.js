@@ -4,6 +4,7 @@ import AcademicScreen from "./AcademicScreen";
 import AccountScreen from "./AccountScreen";
 import MessageScreen from "./MessageScreen";
 import OtherScreen from "./OtherScreen";
+import ListFacultyScreen from "./ListFacultyScreen";
 
 export {
   LoginScreen,
@@ -12,4 +13,5 @@ export {
   AccountScreen,
   MessageScreen,
   OtherScreen,
+  ListFacultyScreen,
 };

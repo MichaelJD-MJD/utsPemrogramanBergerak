@@ -20,6 +20,12 @@ const LoginScreen = ({ navigation }) => {
       navigation.replace("MainApp");
     }, 3000);
   }, []);
+
+  const handleLogin = () => {
+    // Navigasi ke HomeScreen setelah login
+    navigation.navigate("HomeScreen");
+  };
+
   return (
     // Komponen UI login Anda
     <View style={styles.container}>
@@ -70,8 +76,7 @@ const LoginScreen = ({ navigation }) => {
         </View>
       </View>
 
-      {/* Login Button */}
-      <TouchableOpacity style={styles.loginButton}>
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
 
@@ -170,4 +175,3 @@ const styles = StyleSheet.create({
   },
 });
 
-// BATASSSSSSSSSSSSS
