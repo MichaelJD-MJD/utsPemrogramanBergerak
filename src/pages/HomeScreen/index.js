@@ -2,11 +2,11 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import React, { useRef, useEffect } from "react";
 
 const HomeScreen = ({ navigation }) => {
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.replace("MainApp");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigation.replace("MainApp");
+  //   }, 3000);
+  // }, []);
 
   const handleListScreen = () => {
     // Navigasi ke HomeScreen setelah login

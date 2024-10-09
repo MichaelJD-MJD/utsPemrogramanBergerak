@@ -1,3 +1,3 @@
-import BottomTabs from "./BottomTabs";
+// import BottomTabs from "./BottomTabs";
 
-export { BottomTabs };
+// export { BottomTabs };

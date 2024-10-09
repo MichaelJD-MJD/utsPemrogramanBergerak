@@ -15,11 +15,11 @@ import illustration from "../../assets/images/illustration.png"; // Path to your
 
 const LoginScreen = ({ navigation }) => {
   const animation = useRef < LottieView > null;
-  useEffect(() => {
-    setTimeout(() => {
-      navigation.replace("MainApp");
-    }, 3000);
-  }, []);
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     navigation.replace("MainApp");
+  //   }, 3000);
+  // }, []);
 
   const handleLogin = () => {
     // Navigasi ke HomeScreen setelah login
