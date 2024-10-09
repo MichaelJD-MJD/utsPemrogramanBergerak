@@ -1,23 +1,25 @@
-import React from "react";
 import {
-  View,
+  StyleSheet,
   Text,
+  View,
   Image,
   TextInput,
   TouchableOpacity,
-  StyleSheet,
 } from "react-native";
-import nimIcon from "./assets/nim-icon.png"; // Path to your NIM icon image
-import passwordIcon from "./assets/password-icon.png"; // Path to your Password icon image
-import illustration from "./assets/illustration.png"; // Path to your illustration image
+import React, { useRef, useEffect } from "react";
+import LottieView from "lottie-react-native";
 
+import nimIcon from "../../assets/images/nim-icon.png"; // Path to your NIM icon image
+import passwordIcon from "../../assets/images/password-icon.png"; // Path to your Password icon image
+import illustration from "../../assets/images/illustration.png"; // Path to your illustration image
 
 const LoginScreen = ({ navigation }) => {
-  const handleLogin = () => {
-    // Logika login Anda di sini
-    navigation.navigate('Home'); // Navigasi ke HomeScreen
-  };
-
+  const animation = useRef < LottieView > null;
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.replace("MainApp");
+    }, 3000);
+  }, []);
   return (
     // Komponen UI login Anda
     <View style={styles.container}>
@@ -69,7 +71,7 @@ const LoginScreen = ({ navigation }) => {
       </View>
 
       {/* Login Button */}
-      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+      <TouchableOpacity style={styles.loginButton}>
         <Text style={styles.loginButtonText}>Login</Text>
       </TouchableOpacity>
 
@@ -78,6 +80,8 @@ const LoginScreen = ({ navigation }) => {
     </View>
   );
 };
+
+export default LoginScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -166,4 +170,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoginScreen;
+// BATASSSSSSSSSSSSS
