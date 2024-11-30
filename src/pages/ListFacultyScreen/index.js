@@ -13,6 +13,7 @@ import fakultasEkonomi from "../../assets/images/fakultas-ekonomi.png";
 import fakultasHukum from "../../assets/images/fakultas-hukum.png";
 import fakultasTeknik from "../../assets/images/fakultas-teknik.png";
 import fakultasKedokteran from "../../assets/images/fakultas-kedokteran.png";
+import fakultasPertanian from "../../assets/images/fakultas-pertanian.png";
 import arrowLeft from "../../assets/icons/arrow-left.png";
 import { SelectRoomIlkom } from "..";
 
@@ -23,11 +24,11 @@ const ListFacultyScreen = ({ navigation }) => {
 
   const handleSelecrRoomIlkom = () => {
     navigation.navigate("SelectRoomIlkom");
-  }
+  };
 
   const handleBackButton = () => {
     navigation.navigate("HomeScreen");
-  }
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -116,7 +117,21 @@ const ListFacultyScreen = ({ navigation }) => {
         <View style={styles.card}>
           <Image style={styles.cardImage} source={fakultasKedokteran} />
           <View style={styles.cardDetails}>
-            <Text style={styles.cardTitle}>Fakultas Kedokteran</Text>
+            <Text style={styles.cardTitle}>Fakultas kedokteran</Text>
+            <Text style={styles.cardLocation}>
+              Kampus Indralaya dan Palembang
+            </Text>
+          </View>
+          <TouchableOpacity style={styles.detailButton}>
+            <Text style={styles.detailButtonText}>Detail</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Card 6 */}
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={fakultasPertanian} />
+          <View style={styles.cardDetails}>
+            <Text style={styles.cardTitle}>Fakultas Pertanian</Text>
             <Text style={styles.cardLocation}>
               Kampus Indralaya dan Palembang
             </Text>
