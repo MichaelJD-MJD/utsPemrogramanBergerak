@@ -25,7 +25,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.welcomeContainer}>
           <View style={styles.welcomeTextContainer}>
             <Text style={styles.welcomeText}>Selamat Pagi</Text>
-            <Text style={styles.userName}>Bryan Hanggara</Text>
+            <Text style={styles.userName}>MicFahZaKei</Text>
           </View>
           <View style={styles.notificationIconContainer}>
             <View style={styles.notificationIcon}>
