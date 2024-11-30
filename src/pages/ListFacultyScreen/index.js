@@ -5,36 +5,40 @@ import {
   TouchableOpacity,
   StyleSheet,
   ScrollView,
-  Image
+  Image,
 } from "react-native";
 import React from "react";
+import fakultasIlkom from "../../assets/images/fakultas-ilkom.png";
+import fakultasEkonomi from "../../assets/images/fakultas-ekonomi.png";
+import fakultasHukum from "../../assets/images/fakultas-hukum.png";
+import fakultasTeknik from "../../assets/images/fakultas-teknik.png";
+import arrowLeft from "../../assets/icons/arrow-left.png";
+import { SelectRoomIlkom } from "..";
 
 const ListFacultyScreen = ({ navigation }) => {
+  const handleSelectRoomScreen = () => {
+    navigation.navigate("SelectRoomScreen");
+  };
 
-const handleSelectRoomScreen = () => {
-  // Navigasi ke HomeScreen setelah login
-  navigation.navigate("SelectRoomScreen");
-};
+  const handleSelecrRoomIlkom = () => {
+    navigation.navigate("SelectRoomIlkom");
+  }
+
+  const handleBackButton = () => {
+    navigation.navigate("HomeScreen");
+  }
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
-        <View style={styles.inputContainer}>
-          <View style={styles.iconContainer}>
-            <View style={styles.iconBackground}>
-              <View style={styles.iconInner}>
-                <View style={styles.iconLine} />
-                <View style={styles.iconDot} />
-                <View style={styles.iconDot} />
-              </View>
-            </View>
-          </View>
-          <View style={styles.textInputContainer}>
-            <View style={styles.textInputIcon} />
-            <Text style={styles.textInputPlaceholder}>
-              Fakultas apa yang kamu cari hari ini
-            </Text>
-          </View>
+        <View style={styles.header}>
+          <TouchableOpacity style={styles.button} onPress={handleBackButton}>
+            <Image style={styles.arrowIcon} source={arrowLeft} />
+          </TouchableOpacity>
+          <TextInput
+            style={styles.searchBox}
+            placeholder="Ruangan Apa yang kamu cari hari ini"
+          />
         </View>
         <View style={styles.titleContainer}>
           <Text style={styles.title}>Peminjaman Ruangan dan Peralatan</Text>
@@ -45,31 +49,23 @@ const handleSelectRoomScreen = () => {
       </View>
 
       <View style={styles.cardContainer}>
-        {/* Card Component 1 */}
+        {/* Card 1 */}
         <View style={styles.card}>
-          <View style={styles.cardInner} />
-          <Image
-            style={styles.cardImage}
-            source={{ uri: "https://via.placeholder.com/66x65" }}
-          />
+          <Image style={styles.cardImage} source={fakultasIlkom} />
           <View style={styles.cardDetails}>
             <Text style={styles.cardTitle}>Fakultas Ilmu Komputer</Text>
             <Text style={styles.cardLocation}>
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <View style={styles.detailButton}>
+          <TouchableOpacity style={styles.detailButton} onPress={handleSelecrRoomIlkom}>
             <Text style={styles.detailButtonText}>Detail</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
-        {/* Card Component 2 */}
+        {/* Card 2 */}
         <View style={styles.card}>
-          <View style={styles.cardInner} />
-          <Image
-            style={styles.cardImage}
-            source={{ uri: "https://via.placeholder.com/66x66" }}
-          />
+          <Image style={styles.cardImage} source={fakultasEkonomi} />
           <View style={styles.cardDetails}>
             <Text style={styles.cardTitle}>Fakultas Ekonomi</Text>
             <Text style={styles.cardLocation}>
@@ -84,43 +80,35 @@ const handleSelectRoomScreen = () => {
           </TouchableOpacity>
         </View>
 
-        {/* Card Component 3 */}
+        {/* Card 3 */}
         <View style={styles.card}>
-          <View style={styles.cardInner} />
-          <Image
-            style={styles.cardImage}
-            source={{ uri: "https://via.placeholder.com/66x66" }}
-          />
+          <Image style={styles.cardImage} source={fakultasHukum} />
           <View style={styles.cardDetails}>
             <Text style={styles.cardTitle}>Fakultas Hukum</Text>
             <Text style={styles.cardLocation}>
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <View style={styles.detailButton}>
+          <TouchableOpacity style={styles.detailButton}>
             <Text style={styles.detailButtonText}>Detail</Text>
-          </View>
+          </TouchableOpacity>
         </View>
 
-        {/* Card Component 4 */}
+        {/* Card 4 */}
         <View style={styles.card}>
-          <View style={styles.cardInner} />
-          <Image
-            style={styles.cardImage}
-            source={{ uri: "https://via.placeholder.com/66x66" }}
-          />
+          <Image style={styles.cardImage} source={fakultasTeknik} />
           <View style={styles.cardDetails}>
             <Text style={styles.cardTitle}>Fakultas Teknik</Text>
             <Text style={styles.cardLocation}>
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <View style={styles.detailButton}>
+          <TouchableOpacity style={styles.detailButton}>
             <Text style={styles.detailButtonText}>Detail</Text>
-          </View>
+          </TouchableOpacity>
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -128,173 +116,132 @@ export default ListFacultyScreen;
 
 const styles = StyleSheet.create({
   container: {
-    width: 390,
-    height: 844,
+    flexGrow: 1,
     backgroundColor: "white",
-    position: "relative",
+    paddingHorizontal: 16,
+    paddingVertical: 20,
   },
   headerContainer: {
-    height: 98,
-    position: "absolute",
-    left: 17,
-    top: 50,
+    marginBottom: 20,
   },
-  inputContainer: {
-    width: 356,
-    height: 46,
-    justifyContent: "center",
-    alignItems: "center",
+  header: {
     flexDirection: "row",
-    gap: 16,
-    position: "absolute",
-  },
-  iconContainer: {
-    width: 40,
-    height: 40,
-    justifyContent: "center",
     alignItems: "center",
+    marginTop: 50,
   },
-  iconBackground: {
-    padding: 10,
-    backgroundColor: "#3470A2",
-    borderRadius: 999,
-    justifyContent: "center",
-    alignItems: "center",
-    boxShadow: "0px 1px 2px rgba(198, 228, 246, 0.05)",
-  },
-  iconInner: {
-    alignSelf: "stretch",
-    display: "flex",
-  },
-  iconLine: {
-    width: 11.67,
-    height: 2,
-    backgroundColor: "white",
-    position: "absolute",
-    left: 4.17,
-    top: 10,
-  },
-  iconDot: {
-    width: 5,
-    height: 5,
-    backgroundColor: "white",
-    position: "absolute",
-    left: 4.17,
-  },
-  textInputContainer: {
-    width: 300,
-    height: 46,
-    paddingLeft: 20,
-    paddingRight: 20,
-    paddingTop: 16,
-    paddingBottom: 16,
-    backgroundColor: "white",
-    borderRadius: 1000,
-    borderWidth: 1,
-    borderColor: "#F7F8F8",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    flexDirection: "row",
-  },
-  textInputIcon: {
+  arrowIcon: {
     width: 20,
     height: 20,
-    backgroundColor: "#8A8A8A",
   },
-  textInputPlaceholder: {
+  button: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#3470A2",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 16,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+  },
+  searchBox: {
+    flex: 1,
+    height: 46,
+    padding: 16,
+    backgroundColor: "white",
+    borderRadius: 25,
+    borderColor: "#D1D1D1",
+    borderWidth: 1,
+    shadowColor: "rgba(0, 0, 0, 0.1)",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
+  },
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
+  },
+  iconContainer: {
+    marginRight: 10,
+  },
+  iconBackground: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#3470A2",
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  textInput: {
+    flex: 1,
+    height: 46,
+    paddingLeft: 20,
+    borderWidth: 1,
+    borderColor: "#F7F8F8",
+    borderRadius: 23,
+    backgroundColor: "white",
     color: "#8A8A8A",
     fontSize: 14,
-    fontFamily: "Outfit",
-    fontWeight: "500",
   },
   titleContainer: {
-    width: 302,
-    height: 38,
-    position: "absolute",
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    top: 60,
+    alignItems: "center",
   },
   title: {
-    color: "#002649",
     fontSize: 18,
-    fontFamily: "Outfit",
     fontWeight: "700",
+    color: "#002649",
+    marginBottom: 5,
   },
   subtitle: {
-    width: 265,
-    color: "#8A8A8A",
     fontSize: 12,
-    fontFamily: "Outfit",
-    fontWeight: "400",
-    lineHeight: 15,
+    color: "#8A8A8A",
+    textAlign: "center",
   },
   cardContainer: {
-    width: 343,
-    height: 678,
-    position: "absolute",
-    left: 23,
-    top: 133,
-    justifyContent: "center",
-    alignItems: "center",
+    marginTop: 10,
   },
   card: {
-    width: 358,
-    height: 103,
-    position: "relative",
-  },
-  cardInner: {
-    width: 358,
-    height: 103,
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: "white",
     borderRadius: 10,
-    borderWidth: 2,
-    borderColor: "#F7F8F8",
-    position: "absolute",
+    marginBottom: 15,
+    padding: 10,
+    shadowColor: "#000",
+    shadowOpacity: 0.1,
+    shadowRadius: 5,
+    elevation: 2,
   },
   cardImage: {
-    width: 66,
-    height: 66,
-    borderRadius: 9999,
-    position: "absolute",
-    left: 14,
-    top: 19,
+    width: 60,
+    height: 60,
+    borderRadius: 30,
+    marginRight: 10,
   },
   cardDetails: {
-    width: 242,
-    height: 79,
-    position: "absolute",
-    left: 102,
-    top: 12,
+    flex: 1,
   },
   cardTitle: {
+    fontSize: 16,
+    fontWeight: "600",
     color: "#101623",
-    fontSize: 18,
-    fontFamily: "Outfit",
-    fontWeight: "400",
   },
   cardLocation: {
-    color: "#717C9F",
     fontSize: 12,
-    fontFamily: "Outfit",
-    fontWeight: "400",
+    color: "#717C9F",
   },
   detailButton: {
-    width: 93,
-    height: 28,
-    padding: 10,
     backgroundColor: "#3470A2",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
+    paddingVertical: 5,
+    paddingHorizontal: 10,
+    borderRadius: 5,
   },
   detailButtonText: {
-    textAlign: "center",
-    color: "#FFFFFF",
+    color: "white",
     fontSize: 12,
-    fontFamily: "Poppins",
-    fontWeight: "400",
-    textTransform: "capitalize",
+    fontWeight: "500",
   },
 });

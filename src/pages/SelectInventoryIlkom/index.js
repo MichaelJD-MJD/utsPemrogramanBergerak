@@ -5,40 +5,29 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
-  Image
 } from "react-native";
 import React from "react";
-import arrowLeft from "../../assets/icons/arrow-left.png";
-import ListFacultyScreen from "../ListFacultyScreen";
-import selectRoom1 from "../../assets/images/select-room-1.png";
-import selectRoom2 from "../../assets/images/select-room-2.png";
-import selectRoom3 from "../../assets/images/select-room-3.png";
 
-const SelectRoomScreen = ({ navigation }) => {
-
-    const handleDetailRoomScreen = () => {
-      // Navigasi ke HomeScreen setelah login
-      navigation.navigate("DetailRoomScreen");
-    };
-
-     const handleBackButton = () => {
-       navigation.navigate("ListFacultyScreen");
-     };
+const SelectInventoryIlkom = ({ navigation }) => {
+  const handleDetailRoomScreen = () => {
+    // Navigasi ke HomeScreen setelah login
+    navigation.navigate("DetailRoomScreen");
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.button} onPress={handleBackButton}>
-          <Image style={styles.arrowIcon} source={arrowLeft} />
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>{"<"}</Text>
         </TouchableOpacity>
         <TextInput
           style={styles.searchBox}
-          placeholder="Ruangan Apa yang kamu cari hari ini"
+          placeholder="Peralatan Apa yang kamu cari hari ini"
         />
       </View>
 
       <View style={styles.infoSection}>
-        <Text style={styles.fakultasText}>Fakultas Ekonomi</Text>
+        <Text style={styles.fakultasText}>Fakultas Ilmu Komputer</Text>
         <Text style={styles.detailsText}>
           Buka detail untuk informasi lebih lanjut
         </Text>
@@ -55,7 +44,6 @@ const SelectRoomScreen = ({ navigation }) => {
 
       <ScrollView style={styles.content}>
         <View style={styles.roomCard}>
-          <Image style={styles.mainImage} source={selectRoom1} />
           <Text style={styles.roomName}>Ruangan: Advancing Class</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
@@ -68,7 +56,6 @@ const SelectRoomScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.roomCard}>
-          <Image style={styles.mainImage} source={selectRoom2} />
           <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
           <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
@@ -78,7 +65,6 @@ const SelectRoomScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.roomCard}>
-          <Image style={styles.mainImage} source={selectRoom3} />
           <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
@@ -91,7 +77,7 @@ const SelectRoomScreen = ({ navigation }) => {
   );
 };
 
-export default SelectRoomScreen;
+export default SelectInventoryIlkom;
 
 const styles = StyleSheet.create({
   container: {
@@ -112,10 +98,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 16,
-  },
-  arrowIcon: {
-    width: 20,
-    height: 20,
   },
   buttonText: {
     color: "white",
@@ -159,10 +141,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   ruanganButton: {
-    backgroundColor: "#143C5E",
+    backgroundColor: "#3470A2",
   },
   peralatanButton: {
-    backgroundColor: "#3470A2",
+    backgroundColor: "#143C5E",
   },
   buttonLabel: {
     color: "white",
@@ -178,13 +160,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderWidth: 1,
     borderColor: "black",
-  },
-  mainImage: {
-    width: 299,
-    height: 186,
-    alignSelf: "center",
-    marginTop: 20,
-    borderRadius: 8,
   },
   roomName: {
     color: "#545F71",

@@ -8,6 +8,14 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import arrowLeft from "../../assets/icons/arrow-left.png";
+import detailRuangan1 from "../../assets/images/detail-ruangan-1.png";
+import detailRuangan2 from "../../assets/images/detail-ruangan-2.png";
+import detailRuangan3 from "../../assets/images/detail-ruangan-3.png";
+import detailRuangan4 from "../../assets/images/detail-ruangan-4.png";
+import proyektor from "../../assets/icons/proyektor.png";
+import chair from "../../assets/icons/chair.png";
+import table from "../../assets/icons/table.png";
 
 const DetailRoomScreen = ({ navigation }) => {
 
@@ -16,44 +24,48 @@ const DetailRoomScreen = ({ navigation }) => {
        navigation.navigate("FormRentScreen");
      };
 
+     const handleBackButton = () => {
+      navigation.navigate("SelectRoomScreen");
+     }
+
   return (
     <ScrollView contentContainerStyle={styles.container}>
       {/* Bagian Header */}
-      <View style={styles.headerContainer}>
-        <TouchableOpacity style={styles.backButton}>
-          <View style={styles.arrowLeft}></View>
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.button} onPress={handleBackButton}>
+          <Image style={styles.arrowIcon} source={arrowLeft} />
         </TouchableOpacity>
-        <View style={styles.searchBox}>
-          <View style={styles.searchIcon}></View>
-          <Text style={styles.searchText}>Apa yang kamu cari hari ini</Text>
-        </View>
+        <TextInput
+          style={styles.searchBox}
+          placeholder="Apa yang kamu cari hari ini"
+        />
       </View>
 
       {/* Bagian Detail Ruangan */}
       <View style={styles.detailContainer}>
         <Text style={styles.detailTitle}>Detail Ruangan</Text>
-        <Text style={styles.facultyText}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.facultyText}>Fakultas Ekonomi</Text>
       </View>
 
       {/* Gambar Utama */}
       <Image
         style={styles.mainImage}
-        source={{ uri: "https://via.placeholder.com/299x186" }}
+        source={detailRuangan1}
       />
 
       {/* Gambar Tambahan */}
       <View style={styles.additionalImagesContainer}>
         <Image
           style={[styles.additionalImage, styles.selectedImage]}
-          source={{ uri: "https://via.placeholder.com/89x63" }}
+          source={detailRuangan2}
         />
         <Image
           style={styles.additionalImage}
-          source={{ uri: "https://via.placeholder.com/89x63" }}
+          source={detailRuangan3}
         />
         <Image
           style={styles.additionalImage}
-          source={{ uri: "https://via.placeholder.com/89x63" }}
+          source={detailRuangan4}
         />
       </View>
 
@@ -76,7 +88,7 @@ const DetailRoomScreen = ({ navigation }) => {
         <View style={styles.facilityItem}>
           <Image
             style={styles.facilityIcon}
-            source={{ uri: "https://via.placeholder.com/66x57" }}
+            source={proyektor}
           />
           <Text style={styles.facilityText}>Proyektor</Text>
           <Text style={styles.facilityCount}>5</Text>
@@ -84,7 +96,7 @@ const DetailRoomScreen = ({ navigation }) => {
         <View style={styles.facilityItem}>
           <Image
             style={styles.facilityIcon}
-            source={{ uri: "https://via.placeholder.com/58x54" }}
+            source={chair}
           />
           <Text style={styles.facilityText}>Kursi</Text>
           <Text style={styles.facilityCount}>150</Text>
@@ -92,7 +104,7 @@ const DetailRoomScreen = ({ navigation }) => {
         <View style={styles.facilityItem}>
           <Image
             style={styles.facilityIcon}
-            source={{ uri: "https://via.placeholder.com/58x54" }}
+            source={table}
           />
           <Text style={styles.facilityText}>Meja</Text>
           <Text style={styles.facilityCount}>26</Text>
@@ -100,25 +112,14 @@ const DetailRoomScreen = ({ navigation }) => {
       </View>
 
       {/* Tombol Pinjam */}
-      <TouchableOpacity style={styles.pinjamButton} onPress={handleFormRentScreen}>
+      <TouchableOpacity
+        style={styles.pinjamButton}
+        onPress={handleFormRentScreen}
+      >
         <Text style={styles.pinjamButtonText}>PINJAM</Text>
       </TouchableOpacity>
 
-      {/* Bottom Navigation */}
-      <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem}>
-          <View style={styles.navIcon}></View>
-          <Text style={styles.navTextActive}>Beranda</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <View style={styles.navIcon}></View>
-          <Text style={styles.navText}>Lainnya</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <View style={styles.navIcon}></View>
-          <Text style={styles.navText}>Akademik</Text>
-        </TouchableOpacity>
-      </View>
+    
     </ScrollView>
   );
 };
@@ -137,31 +138,40 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: 50,
   },
-  backButton: {
-    width: 40,
-    height: 40,
-    backgroundColor: "#3470A2",
-    borderRadius: 20,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  arrowLeft: {
-    width: 20,
-    height: 20,
-    backgroundColor: "white",
-  },
-  searchBox: {
+  header: {
     flexDirection: "row",
     alignItems: "center",
-    backgroundColor: "#fff",
-    borderRadius: 50,
-    paddingHorizontal: 20,
+    marginTop: 50,
+  },
+  arrowIcon: {
+    width: 20,
+    height: 20,
+  },
+  button: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: "#3470A2",
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 16,
+  },
+  buttonText: {
+    color: "white",
+    fontSize: 16,
+  },
+  searchBox: {
+    flex: 1,
     height: 46,
+    padding: 16,
+    backgroundColor: "white",
+    borderRadius: 25,
+    borderColor: "#D1D1D1",
     borderWidth: 1,
-    shadowColor: "rgba(26, 26, 26, 0.1)",
-    shadowOffset: { width: 0, height: 4 },
+    shadowColor: "rgba(0, 0, 0, 0.1)",
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 1,
-    shadowRadius: 20,
+    shadowRadius: 4,
   },
   searchIcon: {
     width: 20,

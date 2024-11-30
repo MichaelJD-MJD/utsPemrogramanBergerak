@@ -8,6 +8,7 @@ import {
   Image,
 } from "react-native";
 import React from "react";
+import suksesImage from "../../assets/images/sukses.png";
 
 const SuccessScreen = ({ navigation }) => {
 
@@ -20,7 +21,7 @@ const SuccessScreen = ({ navigation }) => {
     <View style={styles.container}>
       {/* Image */}
       <Image
-        source={{ uri: "https://via.placeholder.com/275x278" }}
+        source={suksesImage}
         style={styles.image}
       />
 

@@ -15,6 +15,7 @@ import {
   DetailRoomScreen,
   FormRentScreen,
   SuccessScreen,
+  SelectRoomIlkom,
 } from "../pages";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -44,6 +45,7 @@ const Router = () => {
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ListFacultyScreen" component={ListFacultyScreen} />
       <Stack.Screen name="SelectRoomScreen" component={SelectRoomScreen} />
+      <Stack.Screen name="SelectRoomIlkom" component={SelectRoomIlkom} />
       <Stack.Screen name="DetailRoomScreen" component={DetailRoomScreen} />
       <Stack.Screen name="FormRentScreen" component={FormRentScreen} />
       <Stack.Screen name="SuccessScreen" component={SuccessScreen} />

@@ -8,7 +8,8 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-
+import arrowLeft from "../../assets/icons/arrow-left.png";
+import formImage from "../../assets/images/form-image.png"
 const FormRentScreen = ({ navigation }) => {
 
     const handleSuccessScreen = () => {
@@ -16,16 +17,21 @@ const FormRentScreen = ({ navigation }) => {
       navigation.navigate("SuccessScreen");
     };
 
+    const handleBackButton = () => {
+      navigation.navigate("DetailRoomScrenn");
+    };
+
     return (
       <View style={styles.container}>
-        {/* Header */}
+        {/* Bagian Header */}
         <View style={styles.header}>
-          <TouchableOpacity style={styles.backButton}>
-            <Text style={styles.backButtonText}>Back</Text>
+          <TouchableOpacity style={styles.button} onPress={handleBackButton}>
+            <Image style={styles.arrowIcon} source={arrowLeft} />
           </TouchableOpacity>
-          <View style={styles.searchBox}>
-            <Text style={styles.searchText}>Apa yang kamu cari hari ini</Text>
-          </View>
+          <TextInput
+            style={styles.searchBox}
+            placeholder="Apa yang kamu cari hari ini"
+          />
         </View>
 
         {/* Form Info */}
@@ -36,7 +42,7 @@ const FormRentScreen = ({ navigation }) => {
 
         {/* Image */}
         <Image
-          source={{ uri: "https://via.placeholder.com/293x178" }}
+          source={formImage}
           style={styles.image}
         />
 
@@ -97,24 +103,37 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: "row",
     alignItems: "center",
-    paddingHorizontal: 16,
-    paddingVertical: 12,
+    marginTop: 50,
+  },
+  arrowIcon: {
+    width: 20,
+    height: 20,
+  },
+  button: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
     backgroundColor: "#3470A2",
-    marginTop: 40,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 16,
   },
-  backButton: {
-    padding: 10,
-  },
-  backButtonText: {
+  buttonText: {
     color: "white",
+    fontSize: 16,
   },
   searchBox: {
-    marginLeft: 16,
-    backgroundColor: "white",
-    borderRadius: 50,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
     flex: 1,
+    height: 46,
+    padding: 16,
+    backgroundColor: "white",
+    borderRadius: 25,
+    borderColor: "#D1D1D1",
+    borderWidth: 1,
+    shadowColor: "rgba(0, 0, 0, 0.1)",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
   },
   searchText: {
     color: "#8A8A8A",
