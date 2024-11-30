@@ -9,6 +9,9 @@ import {
 } from "react-native";
 import React from "react";
 import arrowLeft from "../../assets/icons/arrow-left.png";
+import peralatanKursi from "../../assets/images/peralatan-kursi.png"
+import peralatanSofa from "../../assets/images/peralatan-sofa.png"
+import peralatanTv from "../../assets/images/peralatan-tv.png"
 
 const SelectInventoryScreen = ({ navigation }) => {
   const handleDetailRoomScreen = () => {
@@ -57,9 +60,9 @@ const SelectInventoryScreen = ({ navigation }) => {
 
       <ScrollView style={styles.content}>
         <View style={styles.roomCard}>
-          <Text style={styles.roomName}>Ruangan: Advancing Class</Text>
-          <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
-          <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+          <Image style={styles.mainImage} source={peralatanKursi} />
+          <Text style={styles.roomName}>Kursi</Text>
+          <Text style={styles.roomDetails}>Kuantitas: 200</Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={handleDetailRoomScreen}
@@ -69,18 +72,18 @@ const SelectInventoryScreen = ({ navigation }) => {
         </View>
 
         <View style={styles.roomCard}>
-          <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
-          <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
-          <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
+          <Image style={styles.mainImage} source={peralatanSofa} />
+          <Text style={styles.roomName}>Sofa</Text>
+          <Text style={styles.roomDetails}>Kuantitas: 20</Text>
           <TouchableOpacity style={styles.detailButton}>
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
 
         <View style={styles.roomCard}>
-          <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
-          <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
-          <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+          <Image style={styles.mainImage} source={peralatanTv} />
+          <Text style={styles.roomName}>LED Videotron</Text>
+          <Text style={styles.roomDetails}>Kuantitas: 3</Text>
           <TouchableOpacity style={styles.detailButton}>
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -144,6 +147,13 @@ const styles = StyleSheet.create({
   detailsText: {
     color: "#8A8A8A",
     fontSize: 12,
+  },
+  mainImage: {
+    width: 299,
+    height: 186,
+    alignSelf: "center",
+    marginTop: 20,
+    borderRadius: 8,
   },
   buttonContainer: {
     flexDirection: "row",

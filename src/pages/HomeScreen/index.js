@@ -15,96 +15,96 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.banner}>
-        <View style={styles.ellipse}></View>
+      {/* Top Section with Welcome */}
+      <View style={styles.topSection}>
+        <View style={styles.circleBackground} />
         <Image
-          style={styles.bannerImage}
           source={{ uri: "https://via.placeholder.com/236x220" }}
+          style={styles.topImage}
         />
-      </View>
-
-      <View style={styles.frame}>
-        <View style={styles.header}>
-          <View style={styles.greeting}>
-            <Text style={styles.greetingText}>Selamat Pagi</Text>
-            <Text style={styles.nameText}>Fahmichael Zahkei</Text>
+        <View style={styles.welcomeContainer}>
+          <View style={styles.welcomeTextContainer}>
+            <Text style={styles.welcomeText}>Selamat Pagi</Text>
+            <Text style={styles.userName}>Bryan Hanggara</Text>
           </View>
-          <View style={styles.notification}>
-            <View style={styles.bellPin}>
+          <View style={styles.notificationIconContainer}>
+            <View style={styles.notificationIcon}>
               <Image
-                style={styles.bellIcon}
                 source={{ uri: "https://via.placeholder.com/22x17" }}
+                style={styles.notificationBell}
               />
               <View style={styles.notificationDot}></View>
-              <View style={styles.notificationInnerDot}></View>
             </View>
           </View>
         </View>
-
-        <View style={styles.infoBox}>
-          <Text style={styles.infoText}>Fakultas Ilmu Komputer</Text>
-          <Text style={styles.infoText}>Jurusan Sistem Informasi</Text>
+        <View style={styles.facultyInfoContainer}>
+          <Text style={styles.facultyInfo}>
+            Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi
+          </Text>
         </View>
-
-        <View style={styles.searchBox}>
-          <View style={styles.searchIcon}>
-            <View style={styles.vector}></View>
+        <View style={styles.searchBar}>
+          <View style={styles.searchIconContainer}>
+            <View style={styles.searchIcon}></View>
           </View>
           <Text style={styles.searchText}>Apa yang kamu cari hari ini</Text>
         </View>
       </View>
 
-      <Text style={styles.categoryText}>Kategori</Text>
-
-      <View style={styles.categoryBox}>
-        <View style={styles.categoryItem}></View>
-        <View style={styles.categoryItem}></View>
+      {/* Category Section */}
+      <View style={styles.categorySection}>
+        <Text style={styles.categoryTitle}>Kategori</Text>
+        <View style={styles.categoryContainer}>
+          <View style={styles.categoryItem}>
+            <View style={styles.categoryIcon}>
+              <View style={styles.categoryIconBackground}></View>
+            </View>
+            <Text style={styles.categoryText}>Sarana</Text>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.categoryIcon}>
+              <View style={styles.categoryIconBackground}></View>
+            </View>
+            <TouchableOpacity onPress={handleListScreen}>
+              <Text style={styles.categoryText}>Prasarana</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.categoryIcon}>
+              <View style={styles.categoryIconBackground}></View>
+            </View>
+            <Text style={styles.categoryText}>Kemahasiswaan</Text>
+          </View>
+          <View style={styles.categoryItem}>
+            <View style={styles.categoryIcon}>
+              <View style={styles.categoryIconBackground}></View>
+            </View>
+            <Text style={styles.categoryText}>Layanan</Text>
+          </View>
+        </View>
       </View>
 
-      <Text style={styles.transactionText}>Peminjaman</Text>
-      <Text style={styles.transactionText}>Pengembalian</Text>
-
-      <Image
-        style={styles.itemImage}
-        source={{ uri: "https://via.placeholder.com/60x59" }}
-      />
-      <Image
-        style={styles.itemImage}
-        source={{ uri: "https://via.placeholder.com/57x48" }}
-      />
-
-      {/* Transaction Items */}
-      <View style={styles.transactionItem}>
-        <View style={styles.transactionImage}></View>
-        <View style={styles.transactionDetails}>
-          <Text style={styles.transactionName}>Ruangan 001</Text>
-          <Text style={styles.transactionTime}>Kemarin, 10:09</Text>
+      {/* Footer Section */}
+      <View style={styles.footer}>
+        <View style={styles.footerItem}>
+          <View style={styles.footerIcon}></View>
+          <Text style={styles.footerText}>Beranda</Text>
         </View>
-        <Text style={styles.transactionStatus}>Sedang Dipinjam</Text>
-      </View>
-      <View style={styles.transactionItem}>
-        <View style={styles.transactionImage}></View>
-        <View style={styles.transactionDetails}>
-          <Text style={styles.transactionName}>Ruangan 002</Text>
-          <Text style={styles.transactionTime}>Kemarin, 11:59</Text>
+        <View style={styles.footerItem}>
+          <View style={styles.footerIcon}></View>
+          <Text style={styles.footerText}>Lainnya</Text>
         </View>
-        <Text style={styles.transactionStatus}>Sedang Dipinjam</Text>
-      </View>
-      <View style={styles.transactionItem}>
-        <View style={styles.transactionImage}></View>
-        <View style={styles.transactionDetails}>
-          <Text style={styles.transactionName}>Ruangan 003</Text>
-          <Text style={styles.transactionTime}>Kemarin, 11:59</Text>
+        <View style={styles.footerItem}>
+          <View style={styles.footerIcon}></View>
+          <Text style={styles.footerText}>Akademik</Text>
         </View>
-        <Text style={styles.transactionStatus}>Selesai Antrian</Text>
-      </View>
-      <View style={styles.transactionItem}>
-        <View style={styles.transactionImage}></View>
-        <View style={styles.transactionDetails}>
-          <Text style={styles.transactionName}>Ruangan 004</Text>
-          <Text style={styles.transactionTime}>Kemarin, 14:49</Text>
+        <View style={styles.footerItem}>
+          <View style={styles.footerIcon}></View>
+          <Text style={styles.footerText}>Pesan</Text>
         </View>
-        <Text style={styles.transactionStatus}>Dalam Antrian</Text>
+        <View style={styles.footerItem}>
+          <View style={styles.footerIcon}></View>
+          <Text style={styles.footerText}>Akun</Text>
+        </View>
       </View>
     </View>
   );
@@ -115,214 +115,167 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
-    padding: 10,
+    backgroundColor: "#fff",
   },
-  banner: {
-    width: "100%",
-    height: 311,
+  topSection: {
     backgroundColor: "#3470A2",
-    borderTopLeftRadius: 20,
-    borderTopRightRadius: 20,
-    position: "relative",
-    overflow: "hidden",
+    height: 300,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    paddingHorizontal: 20,
+    paddingTop: 50,
   },
-  ellipse: {
+  circleBackground: {
     position: "absolute",
     width: 494,
     height: 494,
-    left: 166,
-    top: 34,
     backgroundColor: "#63ABE6",
-    borderRadius: 9999,
+    borderRadius: 247,
+    top: 34,
+    left: 166,
   },
-  bannerImage: {
+  topImage: {
+    position: "absolute",
     width: 236,
     height: 220,
-    position: "absolute",
     left: 225,
     top: 105,
   },
-  frame: {
-    flexDirection: "column",
-    alignItems: "center",
-    gap: 35,
-  },
-  header: {
+  welcomeContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    width: "100%",
-    paddingHorizontal: 10,
   },
-  greeting: {
+  welcomeTextContainer: {
     flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
   },
-  greetingText: {
+  welcomeText: {
     color: "white",
     fontSize: 12,
     fontWeight: "700",
   },
-  nameText: {
+  userName: {
     color: "#FFC727",
     fontSize: 20,
     fontWeight: "800",
   },
-  notification: {
-    padding: 12,
+  notificationIconContainer: {
     backgroundColor: "white",
-    borderRadius: 1000,
-    justifyContent: "center",
-    alignItems: "center",
+    borderRadius: 50,
+    padding: 12,
   },
-  bellPin: {
-    position: "relative",
+  notificationIcon: {
     width: 32,
     height: 30,
+    position: "relative",
   },
-  bellIcon: {
+  notificationBell: {
     width: 22.27,
     height: 17.5,
-    position: "absolute",
-    left: 4.86,
-    top: 3.75,
   },
   notificationDot: {
-    width: 8,
-    height: 11.25,
-    position: "absolute",
-    left: 20,
-    top: 26.25,
-    borderRadius: 9999,
-    borderWidth: 2,
-    borderColor: "#FFC727",
-  },
-  notificationInnerDot: {
     width: 5.33,
     height: 5,
-    position: "absolute",
-    left: 21.33,
-    top: 5,
     backgroundColor: "#82B3FD",
-    borderRadius: 9999,
-    borderWidth: 1,
-    borderColor: "#82B3FD",
+    borderRadius: 50,
+    position: "absolute",
+    top: 5,
+    right: 0,
   },
-  infoBox: {
-    width: 344,
-    height: 93,
+  facultyInfoContainer: {
+    marginTop: 20,
     backgroundColor: "rgba(255, 255, 255, 0.48)",
     borderRadius: 10,
+    padding: 20,
     backdropFilter: "blur(30px)",
-    paddingHorizontal: 20,
-    paddingVertical: 100,
-    justifyContent: "center",
-    alignItems: "center",
   },
-  infoText: {
+  facultyInfo: {
     color: "white",
     fontSize: 16,
     fontWeight: "600",
-    textAlign: "center",
   },
-  searchBox: {
-    width: "100%",
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    backgroundColor: "white",
-    borderRadius: 1000,
-    boxShadow: "0px 4px 20px rgba(26, 26, 26, 0.10)",
-    borderWidth: 1,
-    justifyContent: "flex-start",
-    alignItems: "center",
+  searchBar: {
     flexDirection: "row",
+    alignItems: "center",
+    backgroundColor: "white",
+    borderRadius: 50,
+    paddingHorizontal: 16,
+    paddingVertical: 10,
+    marginTop: 10,
+  },
+  searchIconContainer: {
+    width: 20,
+    height: 20,
+    backgroundColor: "#8A8A8A",
+    borderRadius: 50,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: 10,
   },
   searchIcon: {
     width: 20,
     height: 20,
-    position: "relative",
-  },
-  vector: {
-    width: 20.02,
-    height: 20.02,
     backgroundColor: "#8A8A8A",
   },
   searchText: {
     color: "#8A8A8A",
     fontSize: 14,
-    fontWeight: "500",
   },
-  categoryText: {
+  categorySection: {
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+  categoryTitle: {
     color: "#002649",
     fontSize: 20,
     fontWeight: "600",
-    textAlign: "center",
-    textTransform: "capitalize",
-    marginTop: 10,
   },
-  categoryBox: {
+  categoryContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     marginTop: 10,
   },
   categoryItem: {
-    width: 91,
-    height: 89,
-    backgroundColor: "#3470A2",
-    borderRadius: 10,
-    boxShadow: "0px 4px 24px -1px rgba(0, 0, 0, 0.25)",
-    borderWidth: 3,
-    borderColor: "#3470A2",
-    backdropFilter: "blur(40px)",
-  },
-  transactionText: {
-    textAlign: "center",
-    color: "#002649",
-    fontSize: 14,
-    fontWeight: "500",
-    textTransform: "capitalize",
-    marginTop: 20,
-  },
-  itemImage: {
-    width: 60,
-    height: 59,
-    marginTop: 10,
-  },
-  transactionItem: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginTop: 10,
     alignItems: "center",
   },
-  transactionImage: {
-    width: 60,
-    height: 60,
-    backgroundColor: "#3470A2",
+  categoryIcon: {
+    width: 45,
+    height: 45,
+    backgroundColor: "#FFC727",
     borderRadius: 10,
+    justifyContent: "center",
+    alignItems: "center",
   },
-  transactionDetails: {
-    flexDirection: "column",
-    marginLeft: 10,
+  categoryIconBackground: {
+    width: 35,
+    height: 33,
+    backgroundColor: "#7CC3FF",
   },
-  transactionName: {
-    fontSize: 16,
-    fontWeight: "600",
-    color: "#002649",
+  categoryText: {
+    color: "#5F5F61",
+    fontSize: 14,
+    marginTop: 5,
   },
-  transactionTime: {
-    fontSize: 12,
-    fontWeight: "400",
-    color: "#6B6B6B",
+  footer: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    backgroundColor: "white",
+    paddingVertical: 10,
+    borderTopColor: "#D9D9D9",
+    borderTopWidth: 2,
   },
-  transactionStatus: {
-    fontSize: 12,
-    fontWeight: "700",
-    color: "#3470A2",
+  footerItem: {
+    alignItems: "center",
+  },
+  footerIcon: {
+    width: 24,
+    height: 24,
+    backgroundColor: "#FFC727",
+  },
+  footerText: {
+    color: "#FFC727",
+    fontSize: 10,
+    fontFamily: "Poppins",
+    marginTop: 3,
   },
 });
-
-
-
-
