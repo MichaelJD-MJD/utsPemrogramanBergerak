@@ -5,36 +5,49 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
+  Image,
 } from "react-native";
 import React from "react";
+import arrowLeft from "../../assets/icons/arrow-left.png";
 
-const SelectInventoryIlkom = ({ navigation }) => {
+const SelectInventoryScreen = ({ navigation }) => {
   const handleDetailRoomScreen = () => {
     // Navigasi ke HomeScreen setelah login
     navigation.navigate("DetailRoomScreen");
   };
 
+  const handleSelectRoomScreen = () => {
+    navigation.navigate("SelectRoomScreen");
+  }
+
+  const handleBackButton = () => {
+    navigation.navigate("SelectRoomScreen");
+  }
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>{"<"}</Text>
+        <TouchableOpacity style={styles.button} onPress={handleBackButton}>
+          <Image style={styles.arrowIcon} source={arrowLeft} />
         </TouchableOpacity>
         <TextInput
           style={styles.searchBox}
-          placeholder="Peralatan Apa yang kamu cari hari ini"
+          placeholder="Ruangan Apa yang kamu cari hari ini"
         />
       </View>
 
       <View style={styles.infoSection}>
-        <Text style={styles.fakultasText}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.fakultasText}>Fakultas Ekonomi</Text>
         <Text style={styles.detailsText}>
           Buka detail untuk informasi lebih lanjut
         </Text>
       </View>
 
       <View style={styles.buttonContainer}>
-        <TouchableOpacity style={[styles.actionButton, styles.ruanganButton]}>
+        <TouchableOpacity
+          style={[styles.actionButton, styles.ruanganButton]}
+          onPress={handleSelectRoomScreen}
+        >
           <Text style={styles.buttonLabel}>Ruangan</Text>
         </TouchableOpacity>
         <TouchableOpacity style={[styles.actionButton, styles.peralatanButton]}>
@@ -77,7 +90,7 @@ const SelectInventoryIlkom = ({ navigation }) => {
   );
 };
 
-export default SelectInventoryIlkom;
+export default SelectInventoryScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -98,6 +111,10 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 16,
+  },
+  arrowIcon: {
+    width: 20,
+    height: 20,
   },
   buttonText: {
     color: "white",

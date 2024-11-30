@@ -12,6 +12,7 @@ import fakultasIlkom from "../../assets/images/fakultas-ilkom.png";
 import fakultasEkonomi from "../../assets/images/fakultas-ekonomi.png";
 import fakultasHukum from "../../assets/images/fakultas-hukum.png";
 import fakultasTeknik from "../../assets/images/fakultas-teknik.png";
+import fakultasKedokteran from "../../assets/images/fakultas-kedokteran.png";
 import arrowLeft from "../../assets/icons/arrow-left.png";
 import { SelectRoomIlkom } from "..";
 
@@ -58,7 +59,10 @@ const ListFacultyScreen = ({ navigation }) => {
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <TouchableOpacity style={styles.detailButton} onPress={handleSelecrRoomIlkom}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={handleSelecrRoomIlkom}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
@@ -99,6 +103,20 @@ const ListFacultyScreen = ({ navigation }) => {
           <Image style={styles.cardImage} source={fakultasTeknik} />
           <View style={styles.cardDetails}>
             <Text style={styles.cardTitle}>Fakultas Teknik</Text>
+            <Text style={styles.cardLocation}>
+              Kampus Indralaya dan Palembang
+            </Text>
+          </View>
+          <TouchableOpacity style={styles.detailButton}>
+            <Text style={styles.detailButtonText}>Detail</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Card 5 */}
+        <View style={styles.card}>
+          <Image style={styles.cardImage} source={fakultasKedokteran} />
+          <View style={styles.cardDetails}>
+            <Text style={styles.cardTitle}>Fakultas Kedokteran</Text>
             <Text style={styles.cardLocation}>
               Kampus Indralaya dan Palembang
             </Text>

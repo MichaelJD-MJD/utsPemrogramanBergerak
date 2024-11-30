@@ -12,6 +12,7 @@ import {
   AccountScreen,
   ListFacultyScreen,
   SelectRoomScreen,
+  SelectInventoryScreen,
   DetailRoomScreen,
   FormRentScreen,
   SuccessScreen,
@@ -45,6 +46,7 @@ const Router = () => {
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ListFacultyScreen" component={ListFacultyScreen} />
       <Stack.Screen name="SelectRoomScreen" component={SelectRoomScreen} />
+      <Stack.Screen name="SelectInventoryScreen" component={SelectInventoryScreen} />
       <Stack.Screen name="SelectRoomIlkom" component={SelectRoomIlkom} />
       <Stack.Screen name="DetailRoomScreen" component={DetailRoomScreen} />
       <Stack.Screen name="FormRentScreen" component={FormRentScreen} />

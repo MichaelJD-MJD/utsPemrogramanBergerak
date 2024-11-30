@@ -5,7 +5,7 @@ import {
   TouchableOpacity,
   TextInput,
   ScrollView,
-  Image
+  Image,
 } from "react-native";
 import React from "react";
 import arrowLeft from "../../assets/icons/arrow-left.png";
@@ -15,15 +15,18 @@ import selectRoom2 from "../../assets/images/select-room-2.png";
 import selectRoom3 from "../../assets/images/select-room-3.png";
 
 const SelectRoomScreen = ({ navigation }) => {
+  const handleInventoryScreen = () => {
+    navigation.navigate("SelectInventoryScreen");
+  };
 
-    const handleDetailRoomScreen = () => {
-      // Navigasi ke HomeScreen setelah login
-      navigation.navigate("DetailRoomScreen");
-    };
+  const handleDetailRoomScreen = () => {
+    // Navigasi ke HomeScreen setelah login
+    navigation.navigate("DetailRoomScreen");
+  };
 
-     const handleBackButton = () => {
-       navigation.navigate("ListFacultyScreen");
-     };
+  const handleBackButton = () => {
+    navigation.navigate("ListFacultyScreen");
+  };
 
   return (
     <View style={styles.container}>
@@ -48,7 +51,10 @@ const SelectRoomScreen = ({ navigation }) => {
         <TouchableOpacity style={[styles.actionButton, styles.ruanganButton]}>
           <Text style={styles.buttonLabel}>Ruangan</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.actionButton, styles.peralatanButton]}>
+        <TouchableOpacity
+          style={[styles.actionButton, styles.peralatanButton]}
+          onPress={handleInventoryScreen}
+        >
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>
       </View>
