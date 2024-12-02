@@ -15,7 +15,6 @@ import fakultasTeknik from "../../assets/images/fakultas-teknik.png";
 import fakultasKedokteran from "../../assets/images/fakultas-kedokteran.png";
 import fakultasPertanian from "../../assets/images/fakultas-pertanian.png";
 import arrowLeft from "../../assets/icons/arrow-left.png";
-import { SelectRoomIlkom } from "..";
 
 const ListFacultyScreen = ({ navigation }) => {
   const handleSelectRoomScreen = () => {
@@ -27,7 +26,7 @@ const ListFacultyScreen = ({ navigation }) => {
   };
 
   const handleBackButton = () => {
-    navigation.navigate("HomeScreen");
+    navigation.goBack();
   };
 
   return (

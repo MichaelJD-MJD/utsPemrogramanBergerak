@@ -8,8 +8,8 @@ import {
     ScrollView,
   } from "react-native";
   import React from "react";
-  import arrowLeft from "../../assets/icons/arrow-left.png";
-  import formImage from "../../assets/images/form-image.png"
+  import arrowLeft from "../../../assets/icons/arrow-left.png";
+  import formImage from "../../../assets/images/form-image.png"
   const FormRentScreen = ({ navigation }) => {
   
       const handleSuccessScreen = () => {
@@ -18,7 +18,7 @@ import {
       };
   
       const handleBackButton = () => {
-        navigation.navigate("DetailRoomScrenn");
+        navigation.goBack();
       };
   
       return (

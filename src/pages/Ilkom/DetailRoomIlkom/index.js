@@ -17,17 +17,15 @@ import proyektor from "../../../assets/icons/proyektor.png";
 import chair from "../../../assets/icons/chair.png";
 import table from "../../../assets/icons/table.png";
 
-const DetailRoomScreen = ({ navigation, route }) => {
-    const {image} = route.params;
+const DetailRoomIlkom = ({ navigation }) => {
+  const handleFormRentScreen = () => {
+    // Navigasi ke HomeScreen setelah login
+    navigation.navigate("FormRentScreen");
+  };
 
-     const handleFormRentScreen = () => {
-       // Navigasi ke HomeScreen setelah login
-       navigation.navigate("FormRentScreen");
-     };
-
-     const handleBackButton = () => {
-      navigation.goBack();
-     }
+  const handleBackButton = () => {
+    navigation.goBack();
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -45,14 +43,11 @@ const DetailRoomScreen = ({ navigation, route }) => {
       {/* Bagian Detail Ruangan */}
       <View style={styles.detailContainer}>
         <Text style={styles.detailTitle}>Detail Ruangan</Text>
-        <Text style={styles.facultyText}>Fakultas Ekonomi</Text>
+        <Text style={styles.facultyText}>Fakultas Ilmu Komputer</Text>
       </View>
 
       {/* Gambar Utama */}
-      <Image
-        style={styles.mainImage}
-        source={image}
-      />
+      <Image style={styles.mainImage} source={detailRuangan1} />
 
       {/* Gambar Tambahan */}
       <View style={styles.additionalImagesContainer}>
@@ -60,14 +55,8 @@ const DetailRoomScreen = ({ navigation, route }) => {
           style={[styles.additionalImage, styles.selectedImage]}
           source={detailRuangan2}
         />
-        <Image
-          style={styles.additionalImage}
-          source={detailRuangan3}
-        />
-        <Image
-          style={styles.additionalImage}
-          source={detailRuangan4}
-        />
+        <Image style={styles.additionalImage} source={detailRuangan3} />
+        <Image style={styles.additionalImage} source={detailRuangan4} />
       </View>
 
       {/* Info Ruangan */}
@@ -87,26 +76,17 @@ const DetailRoomScreen = ({ navigation, route }) => {
       <Text style={styles.facilitiesTitle}>FASILITAS</Text>
       <View style={styles.facilitiesContainer}>
         <View style={styles.facilityItem}>
-          <Image
-            style={styles.facilityIcon}
-            source={proyektor}
-          />
+          <Image style={styles.facilityIcon} source={proyektor} />
           <Text style={styles.facilityText}>Proyektor</Text>
           <Text style={styles.facilityCount}>5</Text>
         </View>
         <View style={styles.facilityItem}>
-          <Image
-            style={styles.facilityIcon}
-            source={chair}
-          />
+          <Image style={styles.facilityIcon} source={chair} />
           <Text style={styles.facilityText}>Kursi</Text>
           <Text style={styles.facilityCount}>150</Text>
         </View>
         <View style={styles.facilityItem}>
-          <Image
-            style={styles.facilityIcon}
-            source={table}
-          />
+          <Image style={styles.facilityIcon} source={table} />
           <Text style={styles.facilityText}>Meja</Text>
           <Text style={styles.facilityCount}>26</Text>
         </View>
@@ -119,13 +99,11 @@ const DetailRoomScreen = ({ navigation, route }) => {
       >
         <Text style={styles.pinjamButtonText}>PINJAM</Text>
       </TouchableOpacity>
-
-    
     </ScrollView>
   );
 };
 
-export default DetailRoomScreen;
+export default DetailRoomIlkom;
 
 const styles = StyleSheet.create({
   container: {

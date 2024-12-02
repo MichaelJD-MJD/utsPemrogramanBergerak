@@ -18,7 +18,7 @@ const FormRentEquipmentScreen = ({ navigation }) => {
   };
 
   const handleBackButton = () => {
-    navigation.navigate("SelectEquipmentScreen");
+    navigation.goBack();
   };
 
   return (
@@ -37,7 +37,7 @@ const FormRentEquipmentScreen = ({ navigation }) => {
       {/* Form Info */}
       <View style={styles.formInfo}>
         <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.faculty}>Fakultas Ekonomi</Text>
       </View>
 
       {/* Image */}

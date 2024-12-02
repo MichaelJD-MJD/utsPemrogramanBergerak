@@ -18,7 +18,7 @@ const FormRentScreen = ({ navigation }) => {
     };
 
     const handleBackButton = () => {
-      navigation.navigate("DetailRoomScrenn");
+      navigation.goBack();
     };
 
     return (

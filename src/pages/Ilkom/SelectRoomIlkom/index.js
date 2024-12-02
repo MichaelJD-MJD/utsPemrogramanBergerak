@@ -9,16 +9,14 @@ import {
 } from "react-native";
 import React from "react";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
-import ListFacultyScreen from "../../ListFacultyScreen";
 
 const SelectRoomIlkom = ({ navigation }) => {
-  const handleDetailRoomScreen = () => {
-    // Navigasi ke HomeScreen setelah login
-    navigation.navigate("DetailRoomScreen");
+  const handleDetailRoomIlkom = () => {
+    navigation.navigate("DetailRoomIlkom");
   };
 
   const handleBackButton = () => {
-    navigation.navigate("ListFacultyScreen");
+    navigation.goBack();
   };
 
   return (
@@ -56,7 +54,7 @@ const SelectRoomIlkom = ({ navigation }) => {
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={handleDetailRoomScreen}
+            onPress={handleDetailRoomIlkom}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
