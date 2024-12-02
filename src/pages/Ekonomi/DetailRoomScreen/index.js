@@ -8,14 +8,14 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import arrowLeft from "../../assets/icons/arrow-left.png";
-import detailRuangan1 from "../../assets/images/detail-ruangan-1.png";
-import detailRuangan2 from "../../assets/images/detail-ruangan-2.png";
-import detailRuangan3 from "../../assets/images/detail-ruangan-3.png";
-import detailRuangan4 from "../../assets/images/detail-ruangan-4.png";
-import proyektor from "../../assets/icons/proyektor.png";
-import chair from "../../assets/icons/chair.png";
-import table from "../../assets/icons/table.png";
+import arrowLeft from "../../../assets/icons/arrow-left.png";
+import detailRuangan1 from "../../../assets/images/detail-ruangan-1.png";
+import detailRuangan2 from "../../../assets/images/detail-ruangan-2.png";
+import detailRuangan3 from "../../../assets/images/detail-ruangan-3.png";
+import detailRuangan4 from "../../../assets/images/detail-ruangan-4.png";
+import proyektor from "../../../assets/icons/proyektor.png";
+import chair from "../../../assets/icons/chair.png";
+import table from "../../../assets/icons/table.png";
 
 const DetailRoomScreen = ({ navigation }) => {
 

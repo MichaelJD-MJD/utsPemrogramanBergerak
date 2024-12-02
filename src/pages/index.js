@@ -2,15 +2,13 @@ import LoginScreen from "./LoginScreen/index";
 import HomeScreen from "./HomeScreen/index";
 import AcademicScreen from "./AcademicScreen";
 import AccountScreen from "./AccountScreen";
-import MessageScreen from "./MessageScreen";
-import OtherScreen from "./OtherScreen";
 import ListFacultyScreen from "./ListFacultyScreen";
-import SelectRoomScreen from "./SelectRoomScreen";
-import SelectEquipmentScreen from "./SelectEquipmentScreen";
-import SelectRoomIlkom from "./SelectRoomIlkom";
-import DetailRoomScreen from "./DetailRoomScreen";
-import FormRentScreen from "./FormRentScreen";
-import FormRentEquipmentScreen from "./FormRentEquipmentScreen";
+import SelectRoomScreen from "./Ekonomi/SelectRoomScreen";
+import SelectEquipmentScreen from "./Ekonomi/SelectEquipmentScreen";
+import SelectRoomIlkom from "./Ilkom/SelectRoomIlkom";
+import DetailRoomScreen from "./Ekonomi/DetailRoomScreen";
+import FormRentScreen from "./Ekonomi/FormRentScreen";
+import FormRentEquipmentScreen from "./Ekonomi/FormRentEquipmentScreen";
 import SuccessScreen from "./SuccessScreen";
 
 export {
@@ -18,8 +16,6 @@ export {
   HomeScreen,
   AcademicScreen,
   AccountScreen,
-  MessageScreen,
-  OtherScreen,
   ListFacultyScreen,
   SelectRoomScreen,
   SelectEquipmentScreen,

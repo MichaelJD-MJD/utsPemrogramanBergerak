@@ -8,10 +8,10 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import arrowLeft from "../../assets/icons/arrow-left.png";
-import peralatanKursi from "../../assets/images/peralatan-kursi.png";
-import peralatanSofa from "../../assets/images/peralatan-sofa.png";
-import peralatanTv from "../../assets/images/peralatan-tv.png";
+import arrowLeft from "../../../assets/icons/arrow-left.png";
+import peralatanKursi from "../../../assets/images/peralatan-kursi.png";
+import peralatanSofa from "../../../assets/images/peralatan-sofa.png";
+import peralatanTv from "../../../assets/images/peralatan-tv.png";
 
 const SelectEquipmentScreen = ({ navigation }) => {
   const handleDetailRoomScreen = () => {

@@ -8,11 +8,11 @@ import {
   Image,
 } from "react-native";
 import React from "react";
-import arrowLeft from "../../assets/icons/arrow-left.png";
-import ListFacultyScreen from "../ListFacultyScreen";
-import selectRoom1 from "../../assets/images/select-room-1.png";
-import selectRoom2 from "../../assets/images/select-room-2.png";
-import selectRoom3 from "../../assets/images/select-room-3.png";
+import arrowLeft from "../../../assets/icons/arrow-left.png";
+import ListFacultyScreen from "../../ListFacultyScreen";
+import selectRoom1 from "../../../assets/images/select-room-1.png";
+import selectRoom2 from "../../../assets/images/select-room-2.png";
+import selectRoom3 from "../../../assets/images/select-room-3.png";
 
 const SelectRoomScreen = ({ navigation }) => {
   const handleEquipmentScreen = () => {

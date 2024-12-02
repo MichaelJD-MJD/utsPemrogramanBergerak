@@ -8,8 +8,8 @@ import {
   Image
 } from "react-native";
 import React from "react";
-import arrowLeft from "../../assets/icons/arrow-left.png";
-import ListFacultyScreen from "../ListFacultyScreen";
+import arrowLeft from "../../../assets/icons/arrow-left.png";
+import ListFacultyScreen from "../../ListFacultyScreen";
 
 const SelectRoomIlkom = ({ navigation }) => {
   const handleDetailRoomScreen = () => {

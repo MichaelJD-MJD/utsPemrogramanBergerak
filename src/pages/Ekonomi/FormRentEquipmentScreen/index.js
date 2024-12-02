@@ -8,8 +8,8 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-import arrowLeft from "../../assets/icons/arrow-left.png";
-import formSofa from "../../assets/images/form-sofa.png";
+import arrowLeft from "../../../assets/icons/arrow-left.png";
+import formSofa from "../../../assets/images/form-sofa.png";
 
 const FormRentEquipmentScreen = ({ navigation }) => {
   const handleSuccessScreen = () => {
