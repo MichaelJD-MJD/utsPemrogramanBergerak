@@ -15,6 +15,10 @@ const SelectRoomIlkom = ({ navigation }) => {
     navigation.navigate("DetailRoomIlkom");
   };
 
+  const handleSelectEquipmentIlkom = () => {
+    navigation.navigate("SelectEquipmentIlkom")
+  }
+
   const handleBackButton = () => {
     navigation.goBack();
   };
@@ -42,7 +46,10 @@ const SelectRoomIlkom = ({ navigation }) => {
         <TouchableOpacity style={[styles.actionButton, styles.ruanganButton]}>
           <Text style={styles.buttonLabel}>Ruangan</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={[styles.actionButton, styles.peralatanButton]}>
+        <TouchableOpacity
+          style={[styles.actionButton, styles.peralatanButton]}
+          onPress={handleSelectEquipmentIlkom}
+        >
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>
       </View>

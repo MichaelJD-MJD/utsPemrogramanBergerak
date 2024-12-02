@@ -30,5 +30,6 @@ export {
   DetailRoomIlkom,
   FormRentScreen,
   FormRentEquipmentScreen,
+  FormRentEquipmentIlkom,
   SuccessScreen,
 };

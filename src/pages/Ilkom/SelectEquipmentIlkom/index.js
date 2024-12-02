@@ -14,7 +14,7 @@ import {
   import peralatanTv from "../../../assets/images/peralatan-tv.png";
   
   const SelectEquipmentIlkom = ({ navigation }) => {
-    const handleDetailRoomScreen = () => {
+    const handleFormRentEquipmentIlkom = () => {
       navigation.navigate("FormRentEquipmentIlkom");
     };
   
@@ -39,7 +39,7 @@ import {
         </View>
   
         <View style={styles.infoSection}>
-          <Text style={styles.fakultasText}>Fakultas Ekonomi</Text>
+          <Text style={styles.fakultasText}>Fakultas Ilmu Komputer</Text>
           <Text style={styles.detailsText}>
             Buka detail untuk informasi lebih lanjut
           </Text>
@@ -64,7 +64,7 @@ import {
             <Text style={styles.roomDetails}>Kuantitas: 200</Text>
             <TouchableOpacity
               style={styles.detailButton}
-              onPress={handleDetailRoomScreen}
+              onPress={handleFormRentEquipmentIlkom}
             >
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>

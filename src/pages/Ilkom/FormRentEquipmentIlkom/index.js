@@ -11,14 +11,14 @@ import {
   import arrowLeft from "../../../assets/icons/arrow-left.png";
   import formSofa from "../../../assets/images/form-sofa.png";
   
-  const FormRentEquipmentScreen = ({ navigation }) => {
+  const FormRentEquipmentIlkom = ({ navigation }) => {
     const handleSuccessScreen = () => {
       // Navigasi ke HomeScreen setelah login
       navigation.navigate("SuccessScreen");
     };
   
     const handleBackButton = () => {
-      navigation.navigate("SelectEquipmentScreen");
+      navigation.goBack();
     };
   
     return (
@@ -89,7 +89,7 @@ import {
       </View>
     );
   };
-  export default FormRentEquipmentScreen;
+  export default FormRentEquipmentIlkom;
   
   const styles = StyleSheet.create({
     container: {
