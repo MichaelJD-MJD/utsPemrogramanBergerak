@@ -35,41 +35,53 @@ const HomeScreen = ({ navigation }) => {
         <Text style={styles.greeting}>Selamat Pagi</Text>
         <Text style={styles.userName}>FahMiZahKei</Text>
         <View style={styles.infoContainer}>
-          <Text style={styles.facultyInfo}>Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi</Text>
+          <Text style={styles.facultyInfo}>
+            Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi
+          </Text>
           <Image
-          style={styles.logo} 
-          source={require('../../assets/images/user-image.png')} 
-        />
+            style={styles.logo}
+            source={require("../../assets/images/user-image.png")}
+          />
         </View>
       </View>
 
       {/* Search Bar */}
       <View style={styles.searchBar}>
-        <TextInput style={styles.searchInput} placeholder="Apa yang kamu cari hari ini" />
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Apa yang kamu cari hari ini"
+        />
       </View>
 
       {/* Categories */}
       <Text style={styles.sectionTitle}>Kategori</Text>
       <View style={styles.categories}>
-        <TouchableOpacity style={styles.categoryItem}>
-        <Image
-          style={styles.categoryIcon} 
-          source={require('../../assets/icons/p1.png')} 
-        />
+        <TouchableOpacity
+          style={styles.categoryItem}
+          onPress={handleListFacultyScreen}
+        >
+          <Image
+            style={styles.categoryIcon}
+            source={require("../../assets/icons/p1.png")}
+          />
           <Text style={styles.categoryText}>Peminjaman</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryItem}>
-        <Image
-          style={styles.categoryIcon} 
-          source={require('../../assets/icons/p2.png')} 
-        />
+          <Image
+            style={styles.categoryIcon}
+            source={require("../../assets/icons/p2.png")}
+          />
           <Text style={styles.categoryText}>Pengembalian</Text>
         </TouchableOpacity>
       </View>
 
       {/* Riwayat Peminjaman */}
       <Text style={styles.sectionTitle}>Riwayat Peminjaman</Text>
-      <FlatList data={data} renderItem={renderItem} keyExtractor={(item) => item.id} />
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };
