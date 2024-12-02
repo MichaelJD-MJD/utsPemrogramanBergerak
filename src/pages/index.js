@@ -6,10 +6,11 @@ import MessageScreen from "./MessageScreen";
 import OtherScreen from "./OtherScreen";
 import ListFacultyScreen from "./ListFacultyScreen";
 import SelectRoomScreen from "./SelectRoomScreen";
-import SelectInventoryScreen from "./SelectInventoryScreen";
+import SelectEquipmentScreen from "./SelectEquipmentScreen";
 import SelectRoomIlkom from "./SelectRoomIlkom";
 import DetailRoomScreen from "./DetailRoomScreen";
 import FormRentScreen from "./FormRentScreen";
+import FormRentEquipmentScreen from "./FormRentEquipmentScreen";
 import SuccessScreen from "./SuccessScreen";
 
 export {
@@ -21,9 +22,10 @@ export {
   OtherScreen,
   ListFacultyScreen,
   SelectRoomScreen,
-  SelectInventoryScreen,
+  SelectEquipmentScreen,
   SelectRoomIlkom,
   DetailRoomScreen,
   FormRentScreen,
+  FormRentEquipmentScreen,
   SuccessScreen,
 };

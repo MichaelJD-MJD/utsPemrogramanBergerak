@@ -15,8 +15,8 @@ import selectRoom2 from "../../assets/images/select-room-2.png";
 import selectRoom3 from "../../assets/images/select-room-3.png";
 
 const SelectRoomScreen = ({ navigation }) => {
-  const handleInventoryScreen = () => {
-    navigation.navigate("SelectInventoryScreen");
+  const handleEquipmentScreen = () => {
+    navigation.navigate("SelectEquipmentScreen");
   };
 
   const handleDetailRoomScreen = () => {
@@ -53,7 +53,7 @@ const SelectRoomScreen = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionButton, styles.peralatanButton]}
-          onPress={handleInventoryScreen}
+          onPress={handleEquipmentScreen}
         >
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>

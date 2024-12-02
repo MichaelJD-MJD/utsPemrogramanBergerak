@@ -12,9 +12,10 @@ import {
   AccountScreen,
   ListFacultyScreen,
   SelectRoomScreen,
-  SelectInventoryScreen,
+  SelectEquipmentScreen,
   DetailRoomScreen,
   FormRentScreen,
+  FormRentEquipmentScreen,
   SuccessScreen,
   SelectRoomIlkom,
 } from "../pages";
@@ -46,10 +47,14 @@ const Router = () => {
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="ListFacultyScreen" component={ListFacultyScreen} />
       <Stack.Screen name="SelectRoomScreen" component={SelectRoomScreen} />
-      <Stack.Screen name="SelectInventoryScreen" component={SelectInventoryScreen} />
+      <Stack.Screen
+        name="SelectEquipmentScreen"
+        component={SelectEquipmentScreen}
+      />
       <Stack.Screen name="SelectRoomIlkom" component={SelectRoomIlkom} />
       <Stack.Screen name="DetailRoomScreen" component={DetailRoomScreen} />
       <Stack.Screen name="FormRentScreen" component={FormRentScreen} />
+      <Stack.Screen name="FormRentEquipmentScreen" component={FormRentEquipmentScreen} />
       <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
       {/* <Stack.Screen name="MainApp" component={MainApp} /> */}
     </Stack.Navigator>

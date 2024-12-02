@@ -9,23 +9,22 @@ import {
 } from "react-native";
 import React from "react";
 import arrowLeft from "../../assets/icons/arrow-left.png";
-import peralatanKursi from "../../assets/images/peralatan-kursi.png"
-import peralatanSofa from "../../assets/images/peralatan-sofa.png"
-import peralatanTv from "../../assets/images/peralatan-tv.png"
+import peralatanKursi from "../../assets/images/peralatan-kursi.png";
+import peralatanSofa from "../../assets/images/peralatan-sofa.png";
+import peralatanTv from "../../assets/images/peralatan-tv.png";
 
-const SelectInventoryScreen = ({ navigation }) => {
+const SelectEquipmentScreen = ({ navigation }) => {
   const handleDetailRoomScreen = () => {
-    // Navigasi ke HomeScreen setelah login
-    navigation.navigate("DetailRoomScreen");
+    navigation.navigate("FormRentEquipmentScreen");
   };
 
   const handleSelectRoomScreen = () => {
     navigation.navigate("SelectRoomScreen");
-  }
+  };
 
   const handleBackButton = () => {
     navigation.navigate("SelectRoomScreen");
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -93,7 +92,7 @@ const SelectInventoryScreen = ({ navigation }) => {
   );
 };
 
-export default SelectInventoryScreen;
+export default SelectEquipmentScreen;
 
 const styles = StyleSheet.create({
   container: {
