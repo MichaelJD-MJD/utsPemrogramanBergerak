@@ -26,7 +26,7 @@ const HomeScreen = () => {
       {/* Header */}
       <View style={styles.header}>
         <Text style={styles.greeting}>Selamat Pagi</Text>
-        <Text style={styles.userName}>Fahmichael Zahkei</Text>
+        <Text style={styles.userName}>FahMiZahKei</Text>
         <View style={styles.infoContainer}>
           <Text style={styles.facultyInfo}>Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi</Text>
           <Image style={styles.logo} source={{ uri: "https://via.placeholder.com/80" }} />
@@ -73,18 +73,21 @@ const styles = StyleSheet.create({
   },
   greeting: {
     color: "#FFFFFF",
-    fontSize: 14,
+    fontSize: 15,
+    marginTop: 30, // Tambahkan jarak vertikal
   },
+  
   userName: {
     color: "#FFC727",
     fontSize: 20,
     fontWeight: "bold",
+    marginTop: 10,
   },
   infoContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 50,
     backgroundColor: "rgba(255, 255, 255, 0.2)",
     borderRadius: 10,
     padding: 10,
@@ -98,7 +101,7 @@ const styles = StyleSheet.create({
     height: 60,
   },
   searchBar: {
-    marginTop: -20,
+    marginTop: 15,
     paddingHorizontal: 20,
   },
   searchInput: {
