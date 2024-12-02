@@ -18,7 +18,7 @@ const FormRentEquipmentScreen = ({ navigation }) => {
   };
 
   const handleBackButton = () => {
-    navigation.navigate("SelectEquipmentScreen");
+    navigation.goBack();
   };
 
   return (

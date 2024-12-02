@@ -24,7 +24,7 @@ const DetailRoomIlkom = ({ navigation }) => {
   };
 
   const handleBackButton = () => {
-    navigation.navigate("SelectRoomScreen");
+    navigation.goBack();
   };
 
   return (

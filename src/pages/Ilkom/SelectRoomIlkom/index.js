@@ -9,7 +9,6 @@ import {
 } from "react-native";
 import React from "react";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
-import ListFacultyScreen from "../../ListFacultyScreen";
 
 const SelectRoomIlkom = ({ navigation }) => {
   const handleDetailRoomIlkom = () => {
@@ -17,7 +16,7 @@ const SelectRoomIlkom = ({ navigation }) => {
   };
 
   const handleBackButton = () => {
-    navigation.navigate("ListFacultyScreen");
+    navigation.goBack();
   };
 
   return (

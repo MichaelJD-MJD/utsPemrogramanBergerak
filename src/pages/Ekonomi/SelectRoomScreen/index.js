@@ -19,13 +19,14 @@ const SelectRoomScreen = ({ navigation }) => {
     navigation.navigate("SelectEquipmentScreen");
   };
 
-  const handleDetailRoomScreen = () => {
-    // Navigasi ke HomeScreen setelah login
-    navigation.navigate("DetailRoomScreen");
+  const handleDetailRoomScreen = (image) => {
+    navigation.navigate("DetailRoomScreen", {
+      image,
+    });
   };
 
   const handleBackButton = () => {
-    navigation.navigate("ListFacultyScreen");
+    navigation.goBack();
   };
 
   return (
@@ -67,7 +68,7 @@ const SelectRoomScreen = ({ navigation }) => {
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={handleDetailRoomScreen}
+            onPress={() => handleDetailRoomScreen(selectRoom1)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -78,7 +79,10 @@ const SelectRoomScreen = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
           <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={() => handleDetailRoomScreen(selectRoom2)}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
@@ -88,7 +92,10 @@ const SelectRoomScreen = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={() => handleDetailRoomScreen(selectRoom3)}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>

@@ -23,7 +23,7 @@ const SelectEquipmentScreen = ({ navigation }) => {
   };
 
   const handleBackButton = () => {
-    navigation.navigate("SelectRoomScreen");
+    navigation.goBack();
   };
 
   return (

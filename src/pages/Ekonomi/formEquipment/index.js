@@ -18,7 +18,7 @@ import {
       };
   
       const handleBackButton = () => {
-        navigation.navigate("DetailRoomScrenn");
+        navigation.goBack();
       };
   
       return (

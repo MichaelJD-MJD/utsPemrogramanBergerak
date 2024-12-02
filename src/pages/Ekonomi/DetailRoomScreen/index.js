@@ -17,7 +17,8 @@ import proyektor from "../../../assets/icons/proyektor.png";
 import chair from "../../../assets/icons/chair.png";
 import table from "../../../assets/icons/table.png";
 
-const DetailRoomScreen = ({ navigation }) => {
+const DetailRoomScreen = ({ navigation, route }) => {
+    const {image} = route.params;
 
      const handleFormRentScreen = () => {
        // Navigasi ke HomeScreen setelah login
@@ -25,7 +26,7 @@ const DetailRoomScreen = ({ navigation }) => {
      };
 
      const handleBackButton = () => {
-      navigation.navigate("SelectRoomScreen");
+      navigation.goBack();
      }
 
   return (
@@ -50,7 +51,7 @@ const DetailRoomScreen = ({ navigation }) => {
       {/* Gambar Utama */}
       <Image
         style={styles.mainImage}
-        source={detailRuangan1}
+        source={image}
       />
 
       {/* Gambar Tambahan */}
