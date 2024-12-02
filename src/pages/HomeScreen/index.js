@@ -1,7 +1,7 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList } from "react-native";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   const data = [
     { id: "1", room: "Ruangan 001", time: "Kemarin, 10:09", status: "Sedang Dipinjam" },
     { id: "2", room: "Ruangan 002", time: "Kemarin, 11:59", status: "Sedang Dipinjam" },
@@ -20,6 +20,10 @@ const HomeScreen = () => {
       <Text style={styles.itemStatus}>{item.status}</Text>
     </View>
   );
+
+  const handleListFacultyScreen = () => {
+    navigation.navigate("ListFacultyScreen");
+  }
 
   return (
     <View style={styles.container}>
@@ -41,7 +45,7 @@ const HomeScreen = () => {
       {/* Categories */}
       <Text style={styles.sectionTitle}>Kategori</Text>
       <View style={styles.categories}>
-        <TouchableOpacity style={styles.categoryItem}>
+        <TouchableOpacity style={styles.categoryItem} onPress={handleListFacultyScreen}>
           <Image style={styles.categoryIcon} source={{ uri: "https://via.placeholder.com/50" }} />
           <Text style={styles.categoryText}>Peminjaman</Text>
         </TouchableOpacity>

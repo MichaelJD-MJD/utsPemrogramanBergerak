@@ -14,6 +14,7 @@ import {
   SelectRoomScreen,
   SelectEquipmentScreen,
   DetailRoomScreen,
+  DetailRoomIlkom,
   FormRentScreen,
   FormRentEquipmentScreen,
   SuccessScreen,
@@ -53,6 +54,7 @@ const Router = () => {
       />
       <Stack.Screen name="SelectRoomIlkom" component={SelectRoomIlkom} />
       <Stack.Screen name="DetailRoomScreen" component={DetailRoomScreen} />
+      <Stack.Screen name="DetailRoomIlkom" component={DetailRoomIlkom} />
       <Stack.Screen name="FormRentScreen" component={FormRentScreen} />
       <Stack.Screen name="FormRentEquipmentScreen" component={FormRentEquipmentScreen} />
       <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
