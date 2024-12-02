@@ -11,7 +11,10 @@ const HomeScreen = () => {
   const renderItem = ({ item }) => (
     <View style={styles.itemContainer}>
       <View style={styles.iconContainer}>
-        <Image style={styles.itemIcon} source={{ uri: "https://via.placeholder.com/24" }} />
+      <Image
+          style={styles.itemIcon} 
+          source={require('../../assets/icons/home.png')} 
+        />
       </View>
       <View style={styles.itemContent}>
         <Text style={styles.itemRoom}>{item.room}</Text>
@@ -29,7 +32,10 @@ const HomeScreen = () => {
         <Text style={styles.userName}>Fahmichael Zahkei</Text>
         <View style={styles.infoContainer}>
           <Text style={styles.facultyInfo}>Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi</Text>
-          <Image style={styles.logo} source={{ uri: "https://via.placeholder.com/80" }} />
+          <Image
+          style={styles.logo} 
+          source={require('../../assets/images/user-image.png')} 
+        />
         </View>
       </View>
 
@@ -42,11 +48,17 @@ const HomeScreen = () => {
       <Text style={styles.sectionTitle}>Kategori</Text>
       <View style={styles.categories}>
         <TouchableOpacity style={styles.categoryItem}>
-          <Image style={styles.categoryIcon} source={{ uri: "https://via.placeholder.com/50" }} />
+        <Image
+          style={styles.categoryIcon} 
+          source={require('../../assets/icons/p1.png')} 
+        />
           <Text style={styles.categoryText}>Peminjaman</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.categoryItem}>
-          <Image style={styles.categoryIcon} source={{ uri: "https://via.placeholder.com/50" }} />
+        <Image
+          style={styles.categoryIcon} 
+          source={require('../../assets/icons/p2.png')} 
+        />
           <Text style={styles.categoryText}>Pengembalian</Text>
         </TouchableOpacity>
       </View>
@@ -64,12 +76,14 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#F5F5F5",
+     minHeight: 800,
+    
   },
   header: {
     backgroundColor: "#3470A2",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    padding: 20,
+    padding: 30,
   },
   greeting: {
     color: "#FFFFFF",
@@ -123,8 +137,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   categoryIcon: {
-    width: 50,
-    height: 50,
+    width: 100,
+    height: 100,
     marginBottom: 5,
   },
   categoryText: {
