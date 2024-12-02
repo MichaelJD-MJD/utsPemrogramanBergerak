@@ -8,13 +8,14 @@ import SelectEquipmentScreen from "./Ekonomi/SelectEquipmentScreen";
 import SelectRoomIlkom from "./Ilkom/SelectRoomIlkom";
 import DetailRoomScreen from "./Ekonomi/DetailRoomScreen";
 import FormRentScreen from "./Ekonomi/FormRentScreen";
+
 import FormRentEquipmentScreen from "./Ekonomi/FormRentEquipmentScreen";
 import SuccessScreen from "./SuccessScreen";
 
 import DetailRoomIlkom from "./Ilkom/DetailRoomIlkom";
 import FormRentEquipmentIlkom from "./Ilkom/FormRentEquipmentIlkom";
 import SelectEquipmentIlkom from "./Ilkom/SelectEquipmentIlkom";
-
+import FormRentRoom from "./Ekonomi/FormRentScreen";
 
 export {
   LoginScreen,
@@ -29,6 +30,7 @@ export {
   DetailRoomScreen,
   DetailRoomIlkom,
   FormRentScreen,
+  FormRentRoom,
   FormRentEquipmentScreen,
   FormRentEquipmentIlkom,
   SuccessScreen,
