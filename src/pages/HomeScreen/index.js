@@ -27,7 +27,9 @@ const HomeScreen = ({ navigation }) => {
   const handleListFacultyScreen = () => {
     navigation.navigate("ListFacultyScreen");
   }
-
+  const handleReturningScreen = () => {
+    navigation.navigate("ReturningScreen");
+  }
   return (
     <View style={styles.container}>
       {/* Header */}
@@ -63,10 +65,13 @@ const HomeScreen = ({ navigation }) => {
           <Image
             style={styles.categoryIcon}
             source={require("../../assets/icons/p1.png")}
+            
           />
           <Text style={styles.categoryText}>Peminjaman</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.categoryItem}>
+        <TouchableOpacity style={styles.categoryItem}
+        onPress={handleReturningScreen}
+        >
           <Image
             style={styles.categoryIcon}
             source={require("../../assets/icons/p2.png")}
@@ -117,7 +122,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 50,
+    marginTop: 25,
     backgroundColor: "rgba(255, 255, 255, 0.2)",
     borderRadius: 10,
     padding: 10,

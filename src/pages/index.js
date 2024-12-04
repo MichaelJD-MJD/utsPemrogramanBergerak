@@ -16,6 +16,9 @@ import DetailRoomIlkom from "./Ilkom/DetailRoomIlkom";
 import FormRentEquipmentIlkom from "./Ilkom/FormRentEquipmentIlkom";
 import SelectEquipmentIlkom from "./Ilkom/SelectEquipmentIlkom";
 import FormRentRoom from "./Ekonomi/FormRentScreen";
+import ReturningScreen from "./ReturningScreen/index";
+import SuccessScreenReturn from "./SuccessScreenReturn/index";
+
 
 export {
   LoginScreen,
@@ -34,4 +37,6 @@ export {
   FormRentEquipmentScreen,
   FormRentEquipmentIlkom,
   SuccessScreen,
+  ReturningScreen,
+  SuccessScreenReturn,
 };

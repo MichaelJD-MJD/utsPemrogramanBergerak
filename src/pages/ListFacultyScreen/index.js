@@ -25,6 +25,10 @@ const ListFacultyScreen = ({ navigation }) => {
     navigation.navigate("SelectRoomIlkom");
   };
 
+  const handleSelectRoomFP = () => {
+    navigation.navigate("SelectRoomFP");
+  };
+
   const handleBackButton = () => {
     navigation.goBack();
   };
@@ -135,7 +139,10 @@ const ListFacultyScreen = ({ navigation }) => {
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={handleSelectRoomFP}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
