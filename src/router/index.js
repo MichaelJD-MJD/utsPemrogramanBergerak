@@ -34,6 +34,11 @@ import {
   FormRentRoomHukum,
   SelectEquipmentHukum,
   SelectRoomHukum,
+  DetailRoomFP,
+  SelectEquipmentFP,
+  SelectRoomFP,
+  FormRentEquipmentFP,
+  FormRentFP,
 } from "../pages";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -88,7 +93,12 @@ const Router = () => {
       <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
       <Stack.Screen name="ReturningScreen" component={ReturningScreen} />
       <Stack.Screen name="SuccessScreenReturn" component={SuccessScreenReturn} />
-     
+      <Stack.Screen name="SelectRoomFP" component={SelectRoomFP} />
+      <Stack.Screen name="DetailRoomFP" component={DetailRoomFP} />
+      <Stack.Screen name="SelectEquipmentFP" component={SelectEquipmentFP} />
+      <Stack.Screen name="FormRentFP" component={FormRentFP} />
+      <Stack.Screen name="FormRentEquipmentFP" component={FormRentEquipmentFP} />
+
       {/* <Stack.Screen name="MainApp" component={MainApp} /> */}
     </Stack.Navigator>
   );

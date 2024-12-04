@@ -32,6 +32,12 @@ import FormRentRoomHukum from "./Hukum/FormRentRoomHukum";
 import SelectEquipmentHukum from "./Hukum/SelectEquipmentHukum";
 import SelectRoomHukum from "./Hukum/SelectRoomHukum";
 
+//Folder FP
+import SelectRoomFP from "./Pertanian/SelectRoomFP";
+import DetailRoomFP from "./Pertanian/DetailRoomFP";
+import SelectEquipmentFP from "./Pertanian/SelectEquipmentFP";
+import FormRentFP from "./Pertanian/FormRentFP";
+import FormRentEquipmentFP from "./Pertanian/FormRentEquipmentFP";
 
 import ReturningScreen from "./ReturningScreen/index";
 import SuccessScreenReturn from "./SuccessScreenReturn/index";
@@ -66,4 +72,9 @@ export {
   FormRentRoomHukum,
   SelectEquipmentHukum,
   SelectRoomHukum,
+  SelectEquipmentFP,
+  SelectRoomFP,
+  DetailRoomFP,
+  FormRentEquipmentFP,
+  FormRentFP,
 };
