@@ -13,13 +13,15 @@ import selectRoom1 from "../../../assets/images/select-room-1.png";
 import selectRoom2 from "../../../assets/images/select-room-2.png";
 import selectRoom3 from "../../../assets/images/select-room-3.png";
 
-const SelectRoomIlkom = ({ navigation }) => {
-  const handleDetailRoomIlkom = () => {
-    navigation.navigate("DetailRoomIlkom");
+const SelectRoomTeknik = ({ navigation }) => {
+  const handleDetailRoomTeknik = (image) => {
+    navigation.navigate("DetailRoomTeknik", {
+      image,
+    });
   };
 
-  const handleSelectEquipmentIlkom = () => {
-    navigation.navigate("SelectEquipmentIlkom")
+  const handleSelectEquipmentTeknik = () => {
+    navigation.navigate("SelectEquipmentTeknik")
   }
 
   const handleBackButton = () => {
@@ -39,7 +41,7 @@ const SelectRoomIlkom = ({ navigation }) => {
       </View>
 
       <View style={styles.infoSection}>
-        <Text style={styles.fakultasText}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.fakultasText}>Fakultas Teknik</Text>
         <Text style={styles.detailsText}>
           Buka detail untuk informasi lebih lanjut
         </Text>
@@ -51,7 +53,7 @@ const SelectRoomIlkom = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionButton, styles.peralatanButton]}
-          onPress={handleSelectEquipmentIlkom}
+          onPress={handleSelectEquipmentTeknik}
         >
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>
@@ -65,7 +67,7 @@ const SelectRoomIlkom = ({ navigation }) => {
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={handleDetailRoomIlkom}
+            onPress={() => handleDetailRoomTeknik(selectRoom1)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -76,7 +78,10 @@ const SelectRoomIlkom = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
           <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={() => handleDetailRoomTeknik(selectRoom2)}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
@@ -86,7 +91,10 @@ const SelectRoomIlkom = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={() => handleDetailRoomTeknik(selectRoom3)}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
@@ -95,7 +103,7 @@ const SelectRoomIlkom = ({ navigation }) => {
   );
 };
 
-export default SelectRoomIlkom;
+export default SelectRoomTeknik;
 
 const styles = StyleSheet.create({
   container: {

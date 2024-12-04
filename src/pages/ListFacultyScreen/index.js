@@ -21,8 +21,12 @@ const ListFacultyScreen = ({ navigation }) => {
     navigation.navigate("SelectRoomScreen");
   };
 
-  const handleSelecrRoomIlkom = () => {
+  const handleSelectRoomIlkom = () => {
     navigation.navigate("SelectRoomIlkom");
+  };
+
+  const handleSelectRoomTeknik = () => {
+    navigation.navigate("SelectRoomTeknik");
   };
 
   const handleSelectRoomFP = () => {
@@ -65,7 +69,7 @@ const ListFacultyScreen = ({ navigation }) => {
           </View>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={handleSelecrRoomIlkom}
+            onPress={handleSelectRoomIlkom}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -111,7 +115,10 @@ const ListFacultyScreen = ({ navigation }) => {
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={handleSelectRoomTeknik}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
