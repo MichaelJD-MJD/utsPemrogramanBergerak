@@ -124,6 +124,27 @@ const handleSelectRoomScreen = () => {
   );
 };
 
+{/* Card Component 5 */}
+<View style={styles.card}>
+  <View style={styles.cardInner} />
+  <Image
+    style={styles.cardImage}
+    source={{ uri: "https://via.placeholder.com/66x66" }}
+  />
+  <View style={styles.cardDetails}>
+    <Text style={styles.cardTitle}>Fakultas Kedokteran</Text>
+    <Text style={styles.cardLocation}>
+      Kampus Indralaya dan Palembang
+    </Text>
+  </View>
+  <TouchableOpacity
+    style={styles.detailButton}
+    onPress={handleSelectRoomScreen} 
+  >
+    <Text style={styles.detailButtonText}>Detail</Text>
+  </TouchableOpacity>
+</View>
+
 export default ListFacultyScreen;
 
 const styles = StyleSheet.create({
