@@ -25,6 +25,13 @@ import FormRentRoomTeknik from "./Teknik/FormRentRoomTeknik";
 import SelectEquipmentTeknik from "./Teknik/SelectEquipmentTeknik";
 import SelectRoomTeknik from "./Teknik/SelectRoomTeknik";
 
+// Folder Hukum
+import DetailRoomHukum from "./Hukum/DetailRoomHukum";
+import FormRentEquipmentHukum from "./Hukum/FormRentEquipmentHukum";
+import FormRentRoomHukum from "./Hukum/FormRentRoomHukum";
+import SelectEquipmentHukum from "./Hukum/SelectEquipmentHukum";
+import SelectRoomHukum from "./Hukum/SelectRoomHukum";
+
 
 import ReturningScreen from "./ReturningScreen/index";
 import SuccessScreenReturn from "./SuccessScreenReturn/index";
@@ -54,4 +61,9 @@ export {
   FormRentRoomTeknik,
   SelectEquipmentTeknik,
   SelectRoomTeknik,
+  DetailRoomHukum,
+  FormRentEquipmentHukum,
+  FormRentRoomHukum,
+  SelectEquipmentHukum,
+  SelectRoomHukum,
 };

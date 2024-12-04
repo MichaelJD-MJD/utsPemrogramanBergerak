@@ -29,6 +29,11 @@ import {
   FormRentRoomTeknik,
   SelectEquipmentTeknik,
   SelectRoomTeknik,
+  DetailRoomHukum,
+  FormRentEquipmentHukum,
+  FormRentRoomHukum,
+  SelectEquipmentHukum,
+  SelectRoomHukum,
 } from "../pages";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -64,17 +69,22 @@ const Router = () => {
       />
       <Stack.Screen name="SelectRoomIlkom" component={SelectRoomIlkom} />
       <Stack.Screen name="SelectRoomTeknik" component={SelectRoomTeknik} />
+      <Stack.Screen name="SelectRoomHukum" component={SelectRoomHukum} />
       <Stack.Screen name="SelectEquipmentIlkom" component={SelectEquipmentIlkom} />
       <Stack.Screen name="SelectEquipmentTeknik" component={SelectEquipmentTeknik} />
+      <Stack.Screen name="SelectEquipmentHukum" component={SelectEquipmentHukum} />
       <Stack.Screen name="DetailRoomScreen" component={DetailRoomScreen} />
       <Stack.Screen name="DetailRoomIlkom" component={DetailRoomIlkom} />
       <Stack.Screen name="DetailRoomTeknik" component={DetailRoomTeknik} />
+      <Stack.Screen name="DetailRoomHukum" component={DetailRoomHukum} />
       <Stack.Screen name="FormRentScreen" component={FormRentScreen} />
       <Stack.Screen name="FormRentRoom" component={FormRentRoom} />
       <Stack.Screen name="FormRentRoomTeknik" component={FormRentRoomTeknik} />
+      <Stack.Screen name="FormRentRoomHukum" component={FormRentRoomHukum} />
       <Stack.Screen name="FormRentEquipmentScreen" component={FormRentEquipmentScreen} />
       <Stack.Screen name="FormRentEquipmentIlkom" component={FormRentEquipmentIlkom} />
       <Stack.Screen name="FormRentEquipmentTeknik" component={FormRentEquipmentTeknik} />
+      <Stack.Screen name="FormRentEquipmentHukum" component={FormRentEquipmentHukum} />
       <Stack.Screen name="SuccessScreen" component={SuccessScreen} />
       <Stack.Screen name="ReturningScreen" component={ReturningScreen} />
       <Stack.Screen name="SuccessScreenReturn" component={SuccessScreenReturn} />
