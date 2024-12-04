@@ -10,7 +10,7 @@ import {
 import React from "react";
 import suksesImage from "../../assets/images/sukses.png";
 
-const SuccessScreen = ({ navigation }) => {
+const SuccessScreenReturn = ({ navigation }) => {
 
      const handleHomeScreen = () => {
        // Navigasi ke HomeScreen setelah login
@@ -26,8 +26,8 @@ const SuccessScreen = ({ navigation }) => {
       />
 
       {/* Notification Text */}
-      <Text style={styles.title}>Peminjaman Disetujui</Text>
-      <Text style={styles.description}>Peminjaman berhasil disetujui</Text>
+      <Text style={styles.title}>Pengembalian Disetujui</Text>
+      <Text style={styles.description}>Pengembalian berhasil disetujui</Text>
 
       {/* Button */}
       <TouchableOpacity style={styles.button} onPress={handleHomeScreen}>
@@ -40,7 +40,7 @@ const SuccessScreen = ({ navigation }) => {
   );
 };
 
-export default SuccessScreen;
+export default SuccessScreenReturn;
 
 const styles = StyleSheet.create({
   container: {

@@ -1,111 +1,92 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
-import React, { useRef, useEffect } from "react";
+import React from "react";
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList } from "react-native";
 
 const HomeScreen = ({ navigation }) => {
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     navigation.replace("MainApp");
-  //   }, 3000);
-  // }, []);
+  const data = [
+    { id: "1", room: "Ruangan 001", time: "Kemarin, 10:09", status: "Sedang Dipinjam" },
+    { id: "2", room: "Ruangan 002", time: "Kemarin, 11:59", status: "Sedang Dipinjam" },
+    { id: "3", room: "Ruangan 003", time: "Kemarin, 11:59", status: "Selesai Antrian" },
+  ];
 
-  const handleListScreen = () => {
-    // Navigasi ke HomeScreen setelah login
+  const renderItem = ({ item }) => (
+    <View style={styles.itemContainer}>
+      <View style={styles.iconContainer}>
+      <Image
+          style={styles.itemIcon} 
+          source={require('../../assets/icons/home.png')} 
+        />
+      </View>
+      <View style={styles.itemContent}>
+        <Text style={styles.itemRoom}>{item.room}</Text>
+        <Text style={styles.itemTime}>{item.time}</Text>
+      </View>
+      <Text style={styles.itemStatus}>{item.status}</Text>
+    </View>
+  );
+
+  const handleListFacultyScreen = () => {
     navigation.navigate("ListFacultyScreen");
-  };
-
+  }
+  const handleReturningScreen = () => {
+    navigation.navigate("ReturningScreen");
+  }
   return (
     <View style={styles.container}>
-      {/* Top Section with Welcome */}
-      <View style={styles.topSection}>
-        <View style={styles.circleBackground} />
-        <Image
-          source={{ uri: "https://via.placeholder.com/236x220" }}
-          style={styles.topImage}
-        />
-        <View style={styles.welcomeContainer}>
-          <View style={styles.welcomeTextContainer}>
-            <Text style={styles.welcomeText}>Selamat Pagi</Text>
-            <Text style={styles.userName}>Bryan Hanggara</Text>
-          </View>
-          <View style={styles.notificationIconContainer}>
-            <View style={styles.notificationIcon}>
-              <Image
-                source={{ uri: "https://via.placeholder.com/22x17" }}
-                style={styles.notificationBell}
-              />
-              <View style={styles.notificationDot}></View>
-            </View>
-          </View>
-        </View>
-        <View style={styles.facultyInfoContainer}>
+      {/* Header */}
+      <View style={styles.header}>
+        <Text style={styles.greeting}>Selamat Pagi</Text>
+        <Text style={styles.userName}>FahMiZahKei</Text>
+        <View style={styles.infoContainer}>
           <Text style={styles.facultyInfo}>
             Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi
           </Text>
-        </View>
-        <View style={styles.searchBar}>
-          <View style={styles.searchIconContainer}>
-            <View style={styles.searchIcon}></View>
-          </View>
-          <Text style={styles.searchText}>Apa yang kamu cari hari ini</Text>
+          <Image
+            style={styles.logo}
+            source={require("../../assets/images/user-image.png")}
+          />
         </View>
       </View>
 
-      {/* Category Section */}
-      <View style={styles.categorySection}>
-        <Text style={styles.categoryTitle}>Kategori</Text>
-        <View style={styles.categoryContainer}>
-          <View style={styles.categoryItem}>
-            <View style={styles.categoryIcon}>
-              <View style={styles.categoryIconBackground}></View>
-            </View>
-            <Text style={styles.categoryText}>Sarana</Text>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.categoryIcon}>
-              <View style={styles.categoryIconBackground}></View>
-            </View>
-            <TouchableOpacity onPress={handleListScreen}>
-              <Text style={styles.categoryText}>Prasarana</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.categoryIcon}>
-              <View style={styles.categoryIconBackground}></View>
-            </View>
-            <Text style={styles.categoryText}>Kemahasiswaan</Text>
-          </View>
-          <View style={styles.categoryItem}>
-            <View style={styles.categoryIcon}>
-              <View style={styles.categoryIconBackground}></View>
-            </View>
-            <Text style={styles.categoryText}>Layanan</Text>
-          </View>
-        </View>
+      {/* Search Bar */}
+      <View style={styles.searchBar}>
+        <TextInput
+          style={styles.searchInput}
+          placeholder="Apa yang kamu cari hari ini"
+        />
       </View>
 
-      {/* Footer Section */}
-      <View style={styles.footer}>
-        <View style={styles.footerItem}>
-          <View style={styles.footerIcon}></View>
-          <Text style={styles.footerText}>Beranda</Text>
-        </View>
-        <View style={styles.footerItem}>
-          <View style={styles.footerIcon}></View>
-          <Text style={styles.footerText}>Lainnya</Text>
-        </View>
-        <View style={styles.footerItem}>
-          <View style={styles.footerIcon}></View>
-          <Text style={styles.footerText}>Akademik</Text>
-        </View>
-        <View style={styles.footerItem}>
-          <View style={styles.footerIcon}></View>
-          <Text style={styles.footerText}>Pesan</Text>
-        </View>
-        <View style={styles.footerItem}>
-          <View style={styles.footerIcon}></View>
-          <Text style={styles.footerText}>Akun</Text>
-        </View>
+      {/* Categories */}
+      <Text style={styles.sectionTitle}>Kategori</Text>
+      <View style={styles.categories}>
+        <TouchableOpacity
+          style={styles.categoryItem}
+          onPress={handleListFacultyScreen}
+        >
+          <Image
+            style={styles.categoryIcon}
+            source={require("../../assets/icons/p1.png")}
+            
+          />
+          <Text style={styles.categoryText}>Peminjaman</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.categoryItem}
+        onPress={handleReturningScreen}
+        >
+          <Image
+            style={styles.categoryIcon}
+            source={require("../../assets/icons/p2.png")}
+          />
+          <Text style={styles.categoryText}>Pengembalian</Text>
+        </TouchableOpacity>
       </View>
+
+      {/* Riwayat Peminjaman */}
+      <Text style={styles.sectionTitle}>Riwayat Peminjaman</Text>
+      <FlatList
+        data={data}
+        renderItem={renderItem}
+        keyExtractor={(item) => item.id}
+      />
     </View>
   );
 };
@@ -115,171 +96,113 @@ export default HomeScreen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#F5F5F5",
+     minHeight: 800,
+    
   },
-  topSection: {
+  header: {
     backgroundColor: "#3470A2",
-    height: 300,
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    paddingHorizontal: 20,
-    paddingTop: 50,
+    padding: 30,
   },
-  circleBackground: {
-    position: "absolute",
-    width: 494,
-    height: 494,
-    backgroundColor: "#63ABE6",
-    borderRadius: 247,
-    top: 34,
-    left: 166,
+  greeting: {
+    color: "#FFFFFF",
+    fontSize: 15,
+    marginTop: 30, // Tambahkan jarak vertikal
   },
-  topImage: {
-    position: "absolute",
-    width: 236,
-    height: 220,
-    left: 225,
-    top: 105,
-  },
-  welcomeContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: "center",
-  },
-  welcomeTextContainer: {
-    flexDirection: "column",
-  },
-  welcomeText: {
-    color: "white",
-    fontSize: 12,
-    fontWeight: "700",
-  },
+  
   userName: {
     color: "#FFC727",
     fontSize: 20,
-    fontWeight: "800",
-  },
-  notificationIconContainer: {
-    backgroundColor: "white",
-    borderRadius: 50,
-    padding: 12,
-  },
-  notificationIcon: {
-    width: 32,
-    height: 30,
-    position: "relative",
-  },
-  notificationBell: {
-    width: 22.27,
-    height: 17.5,
-  },
-  notificationDot: {
-    width: 5.33,
-    height: 5,
-    backgroundColor: "#82B3FD",
-    borderRadius: 50,
-    position: "absolute",
-    top: 5,
-    right: 0,
-  },
-  facultyInfoContainer: {
-    marginTop: 20,
-    backgroundColor: "rgba(255, 255, 255, 0.48)",
-    borderRadius: 10,
-    padding: 20,
-    backdropFilter: "blur(30px)",
-  },
-  facultyInfo: {
-    color: "white",
-    fontSize: 16,
-    fontWeight: "600",
-  },
-  searchBar: {
-    flexDirection: "row",
-    alignItems: "center",
-    backgroundColor: "white",
-    borderRadius: 50,
-    paddingHorizontal: 16,
-    paddingVertical: 10,
+    fontWeight: "bold",
     marginTop: 10,
   },
-  searchIconContainer: {
-    width: 20,
-    height: 20,
-    backgroundColor: "#8A8A8A",
-    borderRadius: 50,
-    justifyContent: "center",
-    alignItems: "center",
-    marginRight: 10,
-  },
-  searchIcon: {
-    width: 20,
-    height: 20,
-    backgroundColor: "#8A8A8A",
-  },
-  searchText: {
-    color: "#8A8A8A",
-    fontSize: 14,
-  },
-  categorySection: {
-    paddingHorizontal: 20,
-    paddingTop: 20,
-  },
-  categoryTitle: {
-    color: "#002649",
-    fontSize: 20,
-    fontWeight: "600",
-  },
-  categoryContainer: {
+  infoContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginTop: 10,
+    alignItems: "center",
+    marginTop: 25,
+    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    borderRadius: 10,
+    padding: 10,
+  },
+  facultyInfo: {
+    color: "#FFFFFF",
+    fontSize: 12,
+  },
+  logo: {
+    width: 60,
+    height: 60,
+  },
+  searchBar: {
+    marginTop: 15,
+    paddingHorizontal: 20,
+  },
+  searchInput: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 20,
+    padding: 10,
+    elevation: 2,
+  },
+  sectionTitle: {
+    color: "#002649",
+    fontSize: 16,
+    fontWeight: "bold",
+    margin: 20,
+    marginBottom: 10,
+  },
+  categories: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    marginBottom: 20,
   },
   categoryItem: {
     alignItems: "center",
   },
   categoryIcon: {
-    width: 45,
-    height: 45,
-    backgroundColor: "#FFC727",
-    borderRadius: 10,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-  categoryIconBackground: {
-    width: 35,
-    height: 33,
-    backgroundColor: "#7CC3FF",
+    width: 100,
+    height: 100,
+    marginBottom: 5,
   },
   categoryText: {
-    color: "#5F5F61",
-    fontSize: 14,
-    marginTop: 5,
+    fontSize: 12,
+    color: "#002649",
   },
-  footer: {
+  itemContainer: {
     flexDirection: "row",
-    justifyContent: "space-around",
-    backgroundColor: "white",
-    paddingVertical: 10,
-    borderTopColor: "#D9D9D9",
-    borderTopWidth: 2,
-  },
-  footerItem: {
     alignItems: "center",
+    backgroundColor: "#FFFFFF",
+    marginHorizontal: 20,
+    marginBottom: 10,
+    borderRadius: 10,
+    padding: 10,
+    elevation: 1,
   },
-  footerIcon: {
+  iconContainer: {
+    backgroundColor: "#E8E8E8",
+    borderRadius: 20,
+    padding: 10,
+  },
+  itemIcon: {
     width: 24,
     height: 24,
-    backgroundColor: "#FFC727",
   },
-  footerText: {
+  itemContent: {
+    flex: 1,
+    marginLeft: 10,
+  },
+  itemRoom: {
+    fontSize: 14,
+    fontWeight: "bold",
+    color: "#002649",
+  },
+  itemTime: {
+    fontSize: 12,
+    color: "#8A8A8A",
+  },
+  itemStatus: {
+    fontSize: 12,
     color: "#FFC727",
-    fontSize: 10,
-    fontFamily: "Poppins",
-    marginTop: 3,
   },
 });
-
-
-
-
