@@ -7,7 +7,6 @@ import SelectRoomScreen from "./Ekonomi/SelectRoomScreen";
 import SelectEquipmentScreen from "./Ekonomi/SelectEquipmentScreen";
 import DetailRoomScreen from "./Ekonomi/DetailRoomScreen";
 import FormRentScreen from "./Ekonomi/FormRentScreen";
-
 import FormRentEquipmentScreen from "./Ekonomi/FormRentEquipmentScreen";
 import SuccessScreen from "./SuccessScreen";
 
@@ -32,16 +31,22 @@ import FormRentRoomHukum from "./Hukum/FormRentRoomHukum";
 import SelectEquipmentHukum from "./Hukum/SelectEquipmentHukum";
 import SelectRoomHukum from "./Hukum/SelectRoomHukum";
 
-//Folder FP
+// Folder FP
 import SelectRoomFP from "./Pertanian/SelectRoomFP";
 import DetailRoomFP from "./Pertanian/DetailRoomFP";
 import SelectEquipmentFP from "./Pertanian/SelectEquipmentFP";
 import FormRentFP from "./Pertanian/FormRentFP";
 import FormRentEquipmentFP from "./Pertanian/FormRentEquipmentFP";
 
+// Folder Kedokteran
+import DetailRoomKedokteran from "./Kedokteran/DetailRoomKedokteran"; // Import baru
+import FormRentEquipmentKedokteran from "./Kedokteran/FormRentEquipmentKedokteran"; // Import baru
+import FormRentKedokteran from "./Kedokteran/FormRentKedokteran"; // Import baru
+import SelectEquipmentKedokteran from "./Kedokteran/SelectEquipmentKedokteran"; // Import baru
+import SelectRoomKedokteran from "./Kedokteran/SelectRoomKedokteran"; // Import baru
+
 import ReturningScreen from "./ReturningScreen/index";
 import SuccessScreenReturn from "./SuccessScreenReturn/index";
-
 
 export {
   LoginScreen,
@@ -77,4 +82,9 @@ export {
   DetailRoomFP,
   FormRentEquipmentFP,
   FormRentFP,
+  DetailRoomKedokteran, // Export baru
+  FormRentEquipmentKedokteran, // Export baru
+  FormRentKedokteran, // Export baru
+  SelectEquipmentKedokteran, // Export baru
+  SelectRoomKedokteran, // Export baru
 };
