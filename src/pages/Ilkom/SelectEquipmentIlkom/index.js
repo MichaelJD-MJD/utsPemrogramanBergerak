@@ -37,14 +37,14 @@ import {
             placeholder="Ruangan Apa yang kamu cari hari ini"
           />
         </View>
-  
+
         <View style={styles.infoSection}>
           <Text style={styles.fakultasText}>Fakultas Ilmu Komputer</Text>
           <Text style={styles.detailsText}>
             Buka detail untuk informasi lebih lanjut
           </Text>
         </View>
-  
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity
             style={[styles.actionButton, styles.ruanganButton]}
@@ -52,16 +52,26 @@ import {
           >
             <Text style={styles.buttonLabel}>Ruangan</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={[styles.actionButton, styles.peralatanButton]}>
+          <TouchableOpacity
+            style={[styles.actionButton, styles.peralatanButton]}
+          >
             <Text style={styles.buttonLabel}>Peralatan</Text>
           </TouchableOpacity>
         </View>
-  
+
         <ScrollView style={styles.content}>
           <View style={styles.roomCard}>
             <Image style={styles.mainImage} source={peralatanKursi} />
             <Text style={styles.roomName}>Kursi</Text>
             <Text style={styles.roomDetails}>Kuantitas: 200</Text>
+            <Text
+              style={[
+                styles.availabilityText,
+                { color: true ? "green" : "red" },
+              ]}
+            >
+              {true ? "Available" : "Not Available"}
+            </Text>
             <TouchableOpacity
               style={styles.detailButton}
               onPress={handleFormRentEquipmentIlkom}
@@ -69,20 +79,36 @@ import {
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
           </View>
-  
+
           <View style={styles.roomCard}>
             <Image style={styles.mainImage} source={peralatanSofa} />
             <Text style={styles.roomName}>Sofa</Text>
             <Text style={styles.roomDetails}>Kuantitas: 20</Text>
+            <Text
+              style={[
+                styles.availabilityText,
+                { color: true ? "green" : "red" },
+              ]}
+            >
+              {false ? "Available" : "Not Available"}
+            </Text>
             <TouchableOpacity style={styles.detailButton}>
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
           </View>
-  
+
           <View style={styles.roomCard}>
             <Image style={styles.mainImage} source={peralatanTv} />
             <Text style={styles.roomName}>LED Videotron</Text>
             <Text style={styles.roomDetails}>Kuantitas: 3</Text>
+            <Text
+              style={[
+                styles.availabilityText,
+                { color: true ? "green" : "red" },
+              ]}
+            >
+              {true ? "Available" : "Not Available"}
+            </Text>
             <TouchableOpacity style={styles.detailButton}>
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>

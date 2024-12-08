@@ -17,11 +17,11 @@ import proyektor from "../../../assets/icons/proyektor.png";
 import chair from "../../../assets/icons/chair.png";
 import table from "../../../assets/icons/table.png";
 
-const DetailRoomHukum = ({ navigation, route }) => {
+const DetailRoomTeknik = ({ navigation, route }) => {
   const { image } = route.params;
   
   const handleFormRentScreen = () => {
-    navigation.navigate("FormRentRoomHukum", {
+    navigation.navigate("FormRentRoomTeknik", {
       image
     });
   };
@@ -46,7 +46,7 @@ const DetailRoomHukum = ({ navigation, route }) => {
       {/* Bagian Detail Ruangan */}
       <View style={styles.detailContainer}>
         <Text style={styles.detailTitle}>Detail Ruangan</Text>
-        <Text style={styles.facultyText}>Fakultas Hukum</Text>
+        <Text style={styles.facultyText}>Fakultas Teknik</Text>
       </View>
 
       {/* Gambar Utama */}
@@ -106,7 +106,7 @@ const DetailRoomHukum = ({ navigation, route }) => {
   );
 };
 
-export default DetailRoomHukum;
+export default DetailRoomTeknik;
 
 const styles = StyleSheet.create({
   container: {

@@ -40,14 +40,14 @@ import {
             placeholder="Ruangan Apa yang kamu cari hari ini"
           />
         </View>
-  
+
         <View style={styles.infoSection}>
           <Text style={styles.fakultasText}>Fakultas Pertanian</Text>
           <Text style={styles.detailsText}>
             Buka detail untuk informasi lebih lanjut
           </Text>
         </View>
-  
+
         <View style={styles.buttonContainer}>
           <TouchableOpacity style={[styles.actionButton, styles.ruanganButton]}>
             <Text style={styles.buttonLabel}>Ruangan</Text>
@@ -59,13 +59,21 @@ import {
             <Text style={styles.buttonLabel}>Peralatan</Text>
           </TouchableOpacity>
         </View>
-  
+
         <ScrollView style={styles.content}>
           <View style={styles.roomCard}>
             <Image style={styles.mainImage} source={selectRoom1} />
             <Text style={styles.roomName}>Ruangan: Advancing Class</Text>
             <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
             <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+            <Text
+              style={[
+                styles.availabilityText,
+                { color: true ? "green" : "red" },
+              ]}
+            >
+              {true ? "Available" : "Not Available"}
+            </Text>
             <TouchableOpacity
               style={styles.detailButton}
               onPress={() => handleDetailRoomFP(selectRoom1)}
@@ -73,12 +81,20 @@ import {
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
           </View>
-  
+
           <View style={styles.roomCard}>
             <Image style={styles.mainImage} source={selectRoom2} />
             <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
             <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
             <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
+            <Text
+              style={[
+                styles.availabilityText,
+                { color: true ? "green" : "red" },
+              ]}
+            >
+              {true ? "Available" : "Not Available"}
+            </Text>
             <TouchableOpacity
               style={styles.detailButton}
               onPress={() => handleDetailRoomFP(selectRoom2)}
@@ -86,12 +102,20 @@ import {
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
           </View>
-  
+
           <View style={styles.roomCard}>
             <Image style={styles.mainImage} source={selectRoom3} />
             <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
             <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
             <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+            <Text
+              style={[
+                styles.availabilityText,
+                { color: true ? "green" : "red" },
+              ]}
+            >
+              {true ? "Available" : "Not Available"}
+            </Text>
             <TouchableOpacity
               style={styles.detailButton}
               onPress={() => handleDetailRoomFP(selectRoom3)}

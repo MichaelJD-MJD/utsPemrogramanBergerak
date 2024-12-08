@@ -54,9 +54,7 @@ const SelectEquipmentHukum = ({ navigation }) => {
         >
           <Text style={styles.buttonLabel}>Ruangan</Text>
         </TouchableOpacity>
-        <TouchableOpacity
-          style={[styles.actionButton, styles.peralatanButton]}
-        >
+        <TouchableOpacity style={[styles.actionButton, styles.peralatanButton]}>
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>
       </View>
@@ -66,6 +64,11 @@ const SelectEquipmentHukum = ({ navigation }) => {
           <Image style={styles.mainImage} source={peralatanKursi} />
           <Text style={styles.roomName}>Kursi</Text>
           <Text style={styles.roomDetails}>Kuantitas: 200</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={() => handleFormRentEquipmentHukum(peralatanKursi)}
@@ -78,6 +81,11 @@ const SelectEquipmentHukum = ({ navigation }) => {
           <Image style={styles.mainImage} source={peralatanSofa} />
           <Text style={styles.roomName}>Sofa</Text>
           <Text style={styles.roomDetails}>Kuantitas: 20</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={() => handleFormRentEquipmentHukum(peralatanSofa)}
@@ -90,6 +98,11 @@ const SelectEquipmentHukum = ({ navigation }) => {
           <Image style={styles.mainImage} source={peralatanTv} />
           <Text style={styles.roomName}>LED Videotron</Text>
           <Text style={styles.roomDetails}>Kuantitas: 3</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={() => handleFormRentEquipmentHukum(peralatanTv)}

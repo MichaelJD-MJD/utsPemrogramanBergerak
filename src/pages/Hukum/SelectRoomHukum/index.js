@@ -65,6 +65,11 @@ const SelectRoomHukum = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Advancing Class</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={() => handleDetailRoomHukum(selectRoom1)}
@@ -78,6 +83,11 @@ const SelectRoomHukum = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
           <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={() => handleDetailRoomHukum(selectRoom2)}
@@ -91,6 +101,11 @@ const SelectRoomHukum = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
             onPress={() => handleDetailRoomHukum(selectRoom3)}

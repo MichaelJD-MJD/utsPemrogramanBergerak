@@ -13,15 +13,15 @@ import selectRoom1 from "../../../assets/images/select-room-1.png";
 import selectRoom2 from "../../../assets/images/select-room-2.png";
 import selectRoom3 from "../../../assets/images/select-room-3.png";
 
-const SelectRoomHukum = ({ navigation }) => {
-  const handleDetailRoomHukum = (image) => {
-    navigation.navigate("DetailRoomHukum", {
+const SelectRoomTeknik = ({ navigation }) => {
+  const handleDetailRoomTeknik = (image) => {
+    navigation.navigate("DetailRoomTeknik", {
       image,
     });
   };
 
-  const handleSelectEquipmentHukum = () => {
-    navigation.navigate("SelectEquipmentHukum")
+  const handleSelectEquipmentTeknik = () => {
+    navigation.navigate("SelectEquipmentTeknik")
   }
 
   const handleBackButton = () => {
@@ -41,7 +41,7 @@ const SelectRoomHukum = ({ navigation }) => {
       </View>
 
       <View style={styles.infoSection}>
-        <Text style={styles.fakultasText}>Fakultas Hukum</Text>
+        <Text style={styles.fakultasText}>Fakultas Teknik</Text>
         <Text style={styles.detailsText}>
           Buka detail untuk informasi lebih lanjut
         </Text>
@@ -53,7 +53,7 @@ const SelectRoomHukum = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionButton, styles.peralatanButton]}
-          onPress={handleSelectEquipmentHukum}
+          onPress={handleSelectEquipmentTeknik}
         >
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>
@@ -65,9 +65,14 @@ const SelectRoomHukum = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Advancing Class</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={() => handleDetailRoomHukum(selectRoom1)}
+            onPress={() => handleDetailRoomTeknik(selectRoom1)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -78,9 +83,14 @@ const SelectRoomHukum = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Aula Serbaguna Lt.3</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Indralaya</Text>
           <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={() => handleDetailRoomHukum(selectRoom2)}
+            onPress={() => handleDetailRoomTeknik(selectRoom2)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -91,9 +101,14 @@ const SelectRoomHukum = ({ navigation }) => {
           <Text style={styles.roomName}>Ruangan: Ruang Kelas 4.2</Text>
           <Text style={styles.roomDetails}>Lokasi: Kampus Bukit</Text>
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
+          <Text
+            style={[styles.availabilityText, { color: true ? "green" : "red" }]}
+          >
+            {true ? "Available" : "Not Available"}
+          </Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={() => handleDetailRoomHukum(selectRoom3)}
+            onPress={() => handleDetailRoomTeknik(selectRoom3)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -103,7 +118,7 @@ const SelectRoomHukum = ({ navigation }) => {
   );
 };
 
-export default SelectRoomHukum;
+export default SelectRoomTeknik;
 
 const styles = StyleSheet.create({
   container: {
