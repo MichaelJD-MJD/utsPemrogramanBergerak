@@ -7,13 +7,15 @@ import {
   Image,
   ScrollView,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
-import formSofa from "../../../assets/images/form-sofa.png";
+import formImage from "../../../assets/images/form-image.png";
 
-const FormRentEquipmentScreen = ({ navigation }) => {
+const FormRentScreen = ({ navigation }) => {
+  const [quantity, setQuantity] = useState(""); // State untuk jumlah barang yang akan dipinjam
+
   const handleSuccessScreen = () => {
-    // Navigasi ke HomeScreen setelah login
+    // Navigasi ke SuccessScreen setelah mengisi form
     navigation.navigate("SuccessScreen");
   };
 
@@ -37,11 +39,11 @@ const FormRentEquipmentScreen = ({ navigation }) => {
       {/* Form Info */}
       <View style={styles.formInfo}>
         <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-        <Text style={styles.faculty}>Fakultas Ekonomi</Text>
+        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
       </View>
 
       {/* Image */}
-      <Image source={formSofa} style={styles.image} />
+      <Image source={formImage} style={styles.image} />
 
       {/* Form Fields */}
       <View style={styles.inputContainer}>
@@ -77,6 +79,21 @@ const FormRentEquipmentScreen = ({ navigation }) => {
         </View>
       </View>
 
+      {/* Form Quantity Barang */}
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Jumlah Barang</Text>
+        <View style={styles.inputBox}>
+          <TextInput
+            style={styles.inputText}
+            value={quantity}
+            placeholder="Masukkan jumlah barang"
+            placeholderTextColor="#BAC0CA"
+            keyboardType="numeric"
+            onChangeText={setQuantity}
+          />
+        </View>
+      </View>
+
       {/* Tombol Buat Surat */}
       <TouchableOpacity
         style={styles.createLetterButton}
@@ -84,12 +101,12 @@ const FormRentEquipmentScreen = ({ navigation }) => {
       >
         <Text style={styles.createLetterButtonText}>Buat Surat</Text>
       </TouchableOpacity>
-
-      {/* Bottom Navigation - dihapus sesuai permintaan */}
+      
     </View>
   );
 };
-export default FormRentEquipmentScreen;
+
+export default FormRentScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -113,10 +130,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginRight: 16,
-  },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
+
   },
   searchBox: {
     flex: 1,
@@ -126,14 +140,7 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderColor: "#D1D1D1",
     borderWidth: 1,
-    shadowColor: "rgba(0, 0, 0, 0.1)",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
-  },
-  searchText: {
-    color: "#8A8A8A",
-    fontSize: 14,
+
   },
   formInfo: {
     paddingHorizontal: 16,

@@ -13,15 +13,15 @@ import {
   import peralatanSofa from "../../../assets/images/peralatan-sofa.png";
   import peralatanTv from "../../../assets/images/peralatan-tv.png";
   
-  const SelectEquipmentTeknik = ({ navigation }) => {
-    const handleFormRentEquipmentTeknik = (image) => {
-      navigation.navigate("FormRentEquipmentTeknik", {
+  const SelectEquipmentHukum = ({ navigation }) => {
+    const handleFormRentEquipmentHukum = (image) => {
+      navigation.navigate("FormRentEquipmentHukum", {
         image,
       });
     };
   
     const handleSelectRoomScreen = () => {
-      navigation.navigate("SelectRoomTeknik");
+      navigation.navigate("SelectRoomHukum");
     };
   
     const handleBackButton = () => {
@@ -41,7 +41,7 @@ import {
         </View>
 
         <View style={styles.infoSection}>
-          <Text style={styles.fakultasText}>Fakultas Teknik</Text>
+          <Text style={styles.fakultasText}>Fakultas Hukum</Text>
           <Text style={styles.detailsText}>
             Buka detail untuk informasi lebih lanjut
           </Text>
@@ -68,7 +68,7 @@ import {
             <Text style={styles.roomDetails}>Kuantitas: 200</Text>
             <TouchableOpacity
               style={styles.detailButton}
-              onPress={() => handleFormRentEquipmentTeknik(peralatanKursi)}
+              onPress={() => handleFormRentEquipmentHukum(peralatanKursi)}
             >
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
@@ -80,7 +80,7 @@ import {
             <Text style={styles.roomDetails}>Kuantitas: 20</Text>
             <TouchableOpacity
               style={styles.detailButton}
-              onPress={() => handleFormRentEquipmentTeknik(peralatanSofa)}
+              onPress={() => handleFormRentEquipmentHukum(peralatanSofa)}
             >
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
@@ -92,7 +92,7 @@ import {
             <Text style={styles.roomDetails}>Kuantitas: 3</Text>
             <TouchableOpacity
               style={styles.detailButton}
-              onPress={() => handleFormRentEquipmentTeknik(peralatanTv)}
+              onPress={() => handleFormRentEquipmentHukum(peralatanTv)}
             >
               <Text style={styles.detailButtonText}>Detail</Text>
             </TouchableOpacity>
@@ -102,7 +102,7 @@ import {
     );
   };
   
-  export default SelectEquipmentTeknik;
+  export default SelectEquipmentHukum;
   
   const styles = StyleSheet.create({
     container: {

@@ -6,24 +6,33 @@ import {
   TextInput,
   Image,
   ScrollView,
+  Platform
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
 import formImage from "../../../assets/images/form-image.png";
 
-const FormRentRoomHukum = ({ navigation, route }) => {
-  const {image} = route.params;
+const FormRentScreen = ({ navigation }) => {
+  const [date, setDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
+
   const handleSuccessScreen = () => {
-    // Navigasi ke HomeScreen setelah login
     navigation.navigate("SuccessScreen");
   };
 
   const handleBackButton = () => {
     navigation.goBack();
-   }
+  };
+
+  const handleDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(Platform.OS === "ios");
+    setDate(currentDate);
+  };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Bagian Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.button} onPress={handleBackButton}>
@@ -38,22 +47,31 @@ const FormRentRoomHukum = ({ navigation, route }) => {
       {/* Form Info */}
       <View style={styles.formInfo}>
         <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-        <Text style={styles.faculty}>Fakultas Hukum</Text>
+        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
       </View>
 
       {/* Image */}
-      <Image source={image} style={styles.image} />
+      <Image source={formImage} style={styles.image} />
 
       {/* Form Fields */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Tanggal</Text>
-        <View style={styles.inputBox}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="MM / DD / YYYY"
-            placeholderTextColor="#BAC0CA"
+        <TouchableOpacity
+          style={styles.inputBox}
+          onPress={() => setShowDatePicker(true)}
+        >
+          <Text style={styles.inputText}>
+            {date.toLocaleDateString("en-US")}
+          </Text>
+        </TouchableOpacity>
+        {showDatePicker && (
+          <DateTimePicker
+            value={date}
+            mode="date"
+            display="default"
+            onChange={handleDateChange}
           />
-        </View>
+        )}
       </View>
 
       <View style={styles.inputContainer}>
@@ -85,11 +103,11 @@ const FormRentRoomHukum = ({ navigation, route }) => {
       >
         <Text style={styles.createLetterButtonText}>Buat Surat</Text>
       </TouchableOpacity>
-
-    </View>
+    </ScrollView>
   );
 };
-export default FormRentRoomHukum;
+
+export default FormRentScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -114,10 +132,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 16,
   },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
-  },
   searchBox: {
     flex: 1,
     height: 46,
@@ -130,10 +144,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 1,
     shadowRadius: 4,
-  },
-  searchText: {
-    color: "#8A8A8A",
-    fontSize: 14,
   },
   formInfo: {
     paddingHorizontal: 16,
@@ -150,7 +160,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   image: {
-    width: 293,
+    width: "100%",
     height: 178,
     borderRadius: 8,
     alignSelf: "center",

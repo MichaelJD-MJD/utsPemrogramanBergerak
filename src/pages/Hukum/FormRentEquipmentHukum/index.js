@@ -5,20 +5,41 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
-  ScrollView,
+  Platform,
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import { DateTimePickerAndroid } from "@react-native-community/datetimepicker"; // Date picker bawaan Android
 import arrowLeft from "../../../assets/icons/arrow-left.png";
-import formSofa from "../../../assets/images/form-sofa.png";
 
 const FormRentEquipmentHukum = ({ navigation, route }) => {
-  const {image} = route.params;
+  const { image } = route.params;
+
+  // State untuk tanggal
+  const [date, setDate] = useState(new Date());
+  const [quantity, setQuantity] = useState("");  // State untuk jumlah barang yang akan dipinjam
+
   const handleSuccessScreen = () => {
     navigation.navigate("SuccessScreen");
   };
 
   const handleBackButton = () => {
     navigation.goBack();
+  };
+
+  const handleDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setDate(currentDate);
+  };
+
+  const showDatePicker = () => {
+    if (Platform.OS === "android") {
+      DateTimePickerAndroid.open({
+        value: date,
+        mode: "date",
+        is24Hour: true,
+        onChange: handleDateChange,
+      });
+    }
   };
 
   return (
@@ -46,13 +67,15 @@ const FormRentEquipmentHukum = ({ navigation, route }) => {
       {/* Form Fields */}
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Tanggal</Text>
-        <View style={styles.inputBox}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="MM / DD / YYYY"
-            placeholderTextColor="#BAC0CA"
-          />
-        </View>
+        <TouchableOpacity style={styles.inputBox} onPress={showDatePicker}>
+          <Text style={styles.inputText}>
+            {date.toLocaleDateString("id-ID", {
+              day: "2-digit",
+              month: "2-digit",
+              year: "numeric",
+            })}
+          </Text>
+        </TouchableOpacity>
       </View>
 
       <View style={styles.inputContainer}>
@@ -77,6 +100,21 @@ const FormRentEquipmentHukum = ({ navigation, route }) => {
         </View>
       </View>
 
+      {/* Form Quantity Barang */}
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Jumlah Barang</Text>
+        <View style={styles.inputBox}>
+          <TextInput
+            style={styles.inputText}
+            value={quantity}
+            placeholder="Masukkan jumlah barang"
+            placeholderTextColor="#BAC0CA"
+            keyboardType="numeric"
+            onChangeText={setQuantity}
+          />
+        </View>
+      </View>
+
       {/* Tombol Buat Surat */}
       <TouchableOpacity
         style={styles.createLetterButton}
@@ -84,11 +122,10 @@ const FormRentEquipmentHukum = ({ navigation, route }) => {
       >
         <Text style={styles.createLetterButtonText}>Buat Surat</Text>
       </TouchableOpacity>
-
-      {/* Bottom Navigation - dihapus sesuai permintaan */}
     </View>
   );
 };
+
 export default FormRentEquipmentHukum;
 
 const styles = StyleSheet.create({
@@ -114,10 +151,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 16,
   },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
-  },
   searchBox: {
     flex: 1,
     height: 46,
@@ -126,14 +159,6 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderColor: "#D1D1D1",
     borderWidth: 1,
-    shadowColor: "rgba(0, 0, 0, 0.1)",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 4,
-  },
-  searchText: {
-    color: "#8A8A8A",
-    fontSize: 14,
   },
   formInfo: {
     paddingHorizontal: 16,
@@ -172,7 +197,7 @@ const styles = StyleSheet.create({
     padding: 12,
   },
   inputText: {
-    color: "#BAC0CA",
+    color: "#002649",
     fontSize: 16,
   },
   createLetterButton: {

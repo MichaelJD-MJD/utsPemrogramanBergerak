@@ -6,93 +6,106 @@ import {
   TextInput,
   Image,
   ScrollView,
+  Platform
 } from "react-native";
-import React from "react";
+import React, { useState } from "react";
+import DateTimePicker from "@react-native-community/datetimepicker";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
-import formImage from "../../../assets/images/form-image.png"
+import formImage from "../../../assets/images/form-image.png";
+
 const FormRentScreen = ({ navigation }) => {
+  const [date, setDate] = useState(new Date());
+  const [showDatePicker, setShowDatePicker] = useState(false);
 
-    const handleSuccessScreen = () => {
-      // Navigasi ke HomeScreen setelah login
-      navigation.navigate("SuccessScreen");
-    };
+  const handleSuccessScreen = () => {
+    navigation.navigate("SuccessScreen");
+  };
 
-    const handleBackButton = () => {
-      navigation.goBack();
-    };
+  const handleBackButton = () => {
+    navigation.goBack();
+  };
 
-    return (
-      <View style={styles.container}>
-        {/* Bagian Header */}
-        <View style={styles.header}>
-          <TouchableOpacity style={styles.button} onPress={handleBackButton}>
-            <Image style={styles.arrowIcon} source={arrowLeft} />
-          </TouchableOpacity>
+  const handleDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(Platform.OS === "ios");
+    setDate(currentDate);
+  };
+
+  return (
+    <ScrollView style={styles.container}>
+      {/* Bagian Header */}
+      <View style={styles.header}>
+        <TouchableOpacity style={styles.button} onPress={handleBackButton}>
+          <Image style={styles.arrowIcon} source={arrowLeft} />
+        </TouchableOpacity>
+        <TextInput
+          style={styles.searchBox}
+          placeholder="Apa yang kamu cari hari ini"
+        />
+      </View>
+
+      {/* Form Info */}
+      <View style={styles.formInfo}>
+        <Text style={styles.formTitle}>Formulir Peminjaman</Text>
+        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
+      </View>
+
+      {/* Image */}
+      <Image source={formImage} style={styles.image} />
+
+      {/* Form Fields */}
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Tanggal</Text>
+        <TouchableOpacity
+          style={styles.inputBox}
+          onPress={() => setShowDatePicker(true)}
+        >
+          <Text style={styles.inputText}>
+            {date.toLocaleDateString("en-US")}
+          </Text>
+        </TouchableOpacity>
+        {showDatePicker && (
+          <DateTimePicker
+            value={date}
+            mode="date"
+            display="default"
+            onChange={handleDateChange}
+          />
+        )}
+      </View>
+
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Waktu</Text>
+        <View style={styles.inputBox}>
           <TextInput
-            style={styles.searchBox}
-            placeholder="Apa yang kamu cari hari ini"
+            style={styles.inputText}
+            placeholder="HH : MM"
+            placeholderTextColor="#BAC0CA"
           />
         </View>
-
-        {/* Form Info */}
-        <View style={styles.formInfo}>
-          <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-          <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
-        </View>
-
-        {/* Image */}
-        <Image
-          source={formImage}
-          style={styles.image}
-        />
-
-        {/* Form Fields */}
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Tanggal</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="MM / DD / YYYY"
-              placeholderTextColor="#BAC0CA"
-            />
-          </View>
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Waktu</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="HH : MM"
-              placeholderTextColor="#BAC0CA"
-            />
-          </View>
-        </View>
-
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>Tujuan</Text>
-          <View style={styles.inputBox}>
-            <TextInput
-              style={styles.inputText}
-              placeholder="Masukkan tujuan"
-              placeholderTextColor="#BAC0CA"
-            />
-          </View>
-        </View>
-
-        {/* Tombol Buat Surat */}
-        <TouchableOpacity
-          style={styles.createLetterButton}
-          onPress={handleSuccessScreen}
-        >
-          <Text style={styles.createLetterButtonText}>Buat Surat</Text>
-        </TouchableOpacity>
-
-        {/* Bottom Navigation - dihapus sesuai permintaan */}
       </View>
-    );
 
-}
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Tujuan</Text>
+        <View style={styles.inputBox}>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Masukkan tujuan"
+            placeholderTextColor="#BAC0CA"
+          />
+        </View>
+      </View>
+
+      {/* Tombol Buat Surat */}
+      <TouchableOpacity
+        style={styles.createLetterButton}
+        onPress={handleSuccessScreen}
+      >
+        <Text style={styles.createLetterButtonText}>Buat Surat</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
+};
 export default FormRentScreen;
 
 const styles = StyleSheet.create({
@@ -118,10 +131,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     marginRight: 16,
   },
-  buttonText: {
-    color: "white",
-    fontSize: 16,
-  },
+
   searchBox: {
     flex: 1,
     height: 46,
@@ -135,10 +145,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 4,
   },
-  searchText: {
-    color: "#8A8A8A",
-    fontSize: 14,
-  },
+
   formInfo: {
     paddingHorizontal: 16,
     paddingTop: 20,
@@ -154,7 +161,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   image: {
-    width: 293,
+    width: "100%",
     height: 178,
     borderRadius: 8,
     alignSelf: "center",

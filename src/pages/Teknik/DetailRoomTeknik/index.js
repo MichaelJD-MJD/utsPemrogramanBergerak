@@ -17,11 +17,11 @@ import proyektor from "../../../assets/icons/proyektor.png";
 import chair from "../../../assets/icons/chair.png";
 import table from "../../../assets/icons/table.png";
 
-const DetailRoomTeknik = ({ navigation, route }) => {
+const DetailRoomHukum = ({ navigation, route }) => {
   const { image } = route.params;
   
   const handleFormRentScreen = () => {
-    navigation.navigate("FormRentRoomTeknik", {
+    navigation.navigate("FormRentRoomHukum", {
       image
     });
   };
@@ -46,7 +46,7 @@ const DetailRoomTeknik = ({ navigation, route }) => {
       {/* Bagian Detail Ruangan */}
       <View style={styles.detailContainer}>
         <Text style={styles.detailTitle}>Detail Ruangan</Text>
-        <Text style={styles.facultyText}>Fakultas Teknik</Text>
+        <Text style={styles.facultyText}>Fakultas Hukum</Text>
       </View>
 
       {/* Gambar Utama */}
@@ -68,7 +68,7 @@ const DetailRoomTeknik = ({ navigation, route }) => {
           <Text style={styles.boldText}>Nama Ruangan:</Text> Advancing Class
         </Text>
         <Text style={styles.infoText}>
-          <Text style={styles.boldText}>Lokasi:</Text> Gedung FasTeknik Bukit
+          <Text style={styles.boldText}>Lokasi:</Text> Gedung Bukit
         </Text>
         <Text style={styles.infoText}>
           <Text style={styles.boldText}>Kapasitas:</Text> 50 Orang
@@ -106,7 +106,7 @@ const DetailRoomTeknik = ({ navigation, route }) => {
   );
 };
 
-export default DetailRoomTeknik;
+export default DetailRoomHukum;
 
 const styles = StyleSheet.create({
   container: {

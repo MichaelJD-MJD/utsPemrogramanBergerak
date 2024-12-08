@@ -13,15 +13,15 @@ import selectRoom1 from "../../../assets/images/select-room-1.png";
 import selectRoom2 from "../../../assets/images/select-room-2.png";
 import selectRoom3 from "../../../assets/images/select-room-3.png";
 
-const SelectRoomTeknik = ({ navigation }) => {
-  const handleDetailRoomTeknik = (image) => {
-    navigation.navigate("DetailRoomTeknik", {
+const SelectRoomHukum = ({ navigation }) => {
+  const handleDetailRoomHukum = (image) => {
+    navigation.navigate("DetailRoomHukum", {
       image,
     });
   };
 
-  const handleSelectEquipmentTeknik = () => {
-    navigation.navigate("SelectEquipmentTeknik")
+  const handleSelectEquipmentHukum = () => {
+    navigation.navigate("SelectEquipmentHukum")
   }
 
   const handleBackButton = () => {
@@ -41,7 +41,7 @@ const SelectRoomTeknik = ({ navigation }) => {
       </View>
 
       <View style={styles.infoSection}>
-        <Text style={styles.fakultasText}>Fakultas Teknik</Text>
+        <Text style={styles.fakultasText}>Fakultas Hukum</Text>
         <Text style={styles.detailsText}>
           Buka detail untuk informasi lebih lanjut
         </Text>
@@ -53,7 +53,7 @@ const SelectRoomTeknik = ({ navigation }) => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.actionButton, styles.peralatanButton]}
-          onPress={handleSelectEquipmentTeknik}
+          onPress={handleSelectEquipmentHukum}
         >
           <Text style={styles.buttonLabel}>Peralatan</Text>
         </TouchableOpacity>
@@ -67,7 +67,7 @@ const SelectRoomTeknik = ({ navigation }) => {
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={() => handleDetailRoomTeknik(selectRoom1)}
+            onPress={() => handleDetailRoomHukum(selectRoom1)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -80,7 +80,7 @@ const SelectRoomTeknik = ({ navigation }) => {
           <Text style={styles.roomDetails}>Kapasitas: 75 Orang</Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={() => handleDetailRoomTeknik(selectRoom2)}
+            onPress={() => handleDetailRoomHukum(selectRoom2)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -93,7 +93,7 @@ const SelectRoomTeknik = ({ navigation }) => {
           <Text style={styles.roomDetails}>Kapasitas: 50 Orang</Text>
           <TouchableOpacity
             style={styles.detailButton}
-            onPress={() => handleDetailRoomTeknik(selectRoom3)}
+            onPress={() => handleDetailRoomHukum(selectRoom3)}
           >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
@@ -103,7 +103,7 @@ const SelectRoomTeknik = ({ navigation }) => {
   );
 };
 
-export default SelectRoomTeknik;
+export default SelectRoomHukum;
 
 const styles = StyleSheet.create({
   container: {
