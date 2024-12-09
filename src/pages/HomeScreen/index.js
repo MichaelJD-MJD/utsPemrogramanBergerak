@@ -3,9 +3,11 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList } 
 
 const HomeScreen = ({ navigation }) => {
   const data = [
-    { id: "1", room: "Ruangan 001", time: "Kemarin, 10:09", status: "Sedang Dipinjam" },
-    { id: "2", room: "Ruangan 002", time: "Kemarin, 11:59", status: "Sedang Dipinjam" },
-    { id: "3", room: "Ruangan 003", time: "Kemarin, 11:59", status: "Selesai Antrian" },
+    { id: "1", room: "Ruangan 001", time: "Hari Ini, 10:09", status: "Sedang Dipinjam" },
+    { id: "2", room: "Ruangan 002", time: "Hari Ini, 11:59", status: "Sedang Dipinjam" },
+    { id: "3", room: "Ruangan 003", time: "Kemarin, 11:59", status: "Selesai Peminjaman" },
+    { id: "4", room: "Ruangan 004", time: "Kemarin, 13:59", status: "Selesai Antrian" },
+    { id: "5", room: "Ruangan 005", time: "Kemarin, 10:50", status: "Selesai Antrian" },
   ];
 
   const renderItem = ({ item }) => (
@@ -30,30 +32,50 @@ const HomeScreen = ({ navigation }) => {
   const handleReturningScreen = () => {
     navigation.navigate("ReturningScreen");
   }
+  const handleNotification = () => {
+    navigation.navigate("Notification");
+  }
   return (
     <View style={styles.container}>
-      {/* Header */}
-      <View style={styles.header}>
-        <Text style={styles.greeting}>Selamat Pagi</Text>
-        <Text style={styles.userName}>FahMiZahKei</Text>
-        <View style={styles.infoContainer}>
-          <Text style={styles.facultyInfo}>
-            Fakultas Ilmu Komputer{"\n"}Jurusan Sistem Informasi
-          </Text>
-          <Image
-            style={styles.logo}
-            source={require("../../assets/images/user-image.png")}
-          />
-        </View>
+     <View style={styles.header}>
+  <View style={styles.infoContainer}>
+    {/* Left side: Logo and Text */}
+    <View style={styles.leftContainer}>
+      <Image
+        style={styles.logo}
+        source={require("../../assets/images/user-image.png")}
+      />
+      <View style={styles.textContainer}>
+        <Text style={styles.userName}>Famichael Zahkei</Text>
+        <Text style={styles.facultyInfo}>Jurusan Sistem Informasi</Text>
       </View>
+    </View>
+
+    {/* Right side: Notification Icon */}
+    <TouchableOpacity onPress={handleNotification}>
+      <Image
+        style={styles.notificationIcon}
+        source={require("../../assets/icons/bells.png")} // Ganti dengan path gambar notifikasi
+      />
+    </TouchableOpacity>
+  </View>
+</View>
+
 
       {/* Search Bar */}
-      <View style={styles.searchBar}>
-        <TextInput
-          style={styles.searchInput}
-          placeholder="Apa yang kamu cari hari ini"
-        />
-      </View>
+<View style={styles.searchBar}>
+  <Image
+    style={styles.search}
+    source={require("../../assets/icons/search1.png")}
+  />
+  <TextInput
+    style={styles.searchInput}
+    placeholder="Apa yang kamu cari hari ini"
+  />
+</View>
+
+
+
 
       {/* Categories */}
       <Text style={styles.sectionTitle}>Kategori</Text>
@@ -104,47 +126,79 @@ const styles = StyleSheet.create({
     backgroundColor: "#3470A2",
     borderBottomLeftRadius: 20,
     borderBottomRightRadius: 20,
-    padding: 30,
-  },
-  greeting: {
-    color: "#FFFFFF",
-    fontSize: 15,
-    marginTop: 30, // Tambahkan jarak vertikal
+    padding: 15, // Menyesuaikan padding agar lebih proporsional
   },
   
-  userName: {
-    color: "#FFC727",
-    fontSize: 20,
-    fontWeight: "bold",
-    marginTop: 10,
-  },
   infoContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 25,
-    backgroundColor: "rgba(255, 255, 255, 0.2)",
+    marginTop: 50,
+    
     borderRadius: 10,
     padding: 10,
   },
+  
+  leftContainer: {
+    flexDirection: "row", // Menyusun logo dan teks dalam satu baris
+    alignItems: "center", // Menjaga keselarasan vertikal
+  },
+  
+  textContainer: {
+    marginLeft: 10, // Memberikan jarak antara logo dan teks
+  },
+  
+  userName: {
+    color: "#FFFFFF",
+    fontSize: 22, // Ukuran font yang lebih besar untuk nama
+    fontWeight: "bold",
+  },
+  
   facultyInfo: {
     color: "#FFFFFF",
-    fontSize: 12,
+    fontSize: 14, // Ukuran font yang lebih kecil untuk jurusan
   },
+  
   logo: {
     width: 60,
     height: 60,
+    marginRight:8,
   },
+  
+  notificationIcon: {
+    width: 30, // Sama besar dengan logo
+    height: 30,
+    marginRight: 13,
+  },
+  
   searchBar: {
     marginTop: 15,
-    paddingHorizontal: 20,
+    marginHorizontal: 20, // Memberikan margin kiri dan kanan
+    flexDirection: 'row', // Menyusun gambar dan input dalam satu baris
+    alignItems: 'center', // Mengatur posisi gambar dan input agar rata tengah secara vertikal
+    backgroundColor: "#FFFFFF", // Memberikan latar belakang pada kontainer pencarian
+    borderRadius: 20, // Membuat sudut kontainer menjadi bulat
+    elevation: 2, // Memberikan bayangan
+    paddingVertical: 8, // Memberikan padding vertikal lebih kecil
+    maxWidth: '90%', // Menyesuaikan lebar kontainer dengan lebar layar
+    alignSelf: 'center', // Memastikan kontainer search bar berada di tengah
   },
+  
+  search: {
+    width: 18, // Mengurangi ukuran gambar pencarian agar lebih proporsional
+    height: 18, // Mengurangi ukuran gambar pencarian
+    marginRight: 10, // Memberikan jarak antara gambar dan input teks
+    marginLeft: 15,
+  },
+  
   searchInput: {
-    backgroundColor: "#FFFFFF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
+    flex: 1, // Memberikan ruang agar TextInput mengambil lebih banyak ruang dalam kontainer
+    backgroundColor: "#FFFFFF", // Warna latar belakang input
+    padding: 5, // Mengurangi padding dalam input untuk ukuran yang lebih kecil
+    borderRadius: 20, // Membuat sudut input menjadi bulat
+    fontSize: 14, // Mengurangi ukuran font agar sesuai dengan ukuran bar
   },
+  
   sectionTitle: {
     color: "#002649",
     fontSize: 16,

@@ -39,6 +39,7 @@ import {
   SelectRoomFP,
   FormRentEquipmentFP,
   FormRentFP,
+  Notification,
 } from "../pages";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
@@ -98,6 +99,7 @@ const Router = () => {
       <Stack.Screen name="SelectEquipmentFP" component={SelectEquipmentFP} />
       <Stack.Screen name="FormRentFP" component={FormRentFP} />
       <Stack.Screen name="FormRentEquipmentFP" component={FormRentEquipmentFP} />
+      <Stack.Screen name="Notification" component={Notification} />
 
       {/* <Stack.Screen name="MainApp" component={MainApp} /> */}
     </Stack.Navigator>

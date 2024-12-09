@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   Text,
@@ -8,15 +8,28 @@ import {
   TouchableOpacity,
   ScrollView,
 } from "react-native";
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Picker } from '@react-native-picker/picker'; // Menggunakan Picker untuk dropdown
 
 const ReturningScreen = ({ navigation }) => {
+  const [date, setDate] = useState(new Date());  // State untuk menyimpan tanggal
+  const [selectedRoom, setSelectedRoom] = useState(""); // State untuk menyimpan ruangan
+  const [selectedFaculty, setSelectedFaculty] = useState(""); // State untuk menyimpan fakultas
+  const [showDatePicker, setShowDatePicker] = useState(false); // State untuk menampilkan date picker
+
   const handleBackButton = () => {
     navigation.goBack();
   };
 
   const handleSuccessScreenReturn = () => {
-    // Navigasi ke HomeScreen setelah login
+    // Navigasi ke SuccessScreenReturn setelah submit
     navigation.navigate("SuccessScreenReturn");
+  };
+
+  const onDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(Platform.OS === 'ios' ? true : false);
+    setDate(currentDate); // Memperbarui tanggal yang dipilih
   };
 
   return (
@@ -57,7 +70,21 @@ const ReturningScreen = ({ navigation }) => {
           <Text style={styles.label}>
             Hari/Tanggal <Text style={styles.asterisk}>*</Text>
           </Text>
-          <TextInput style={styles.input} placeholder="Hari/Tanggal" />
+          <TouchableOpacity
+            style={styles.datePicker}
+            onPress={() => setShowDatePicker(true)} // Menampilkan date picker saat tombol ditekan
+          >
+            <Text>{date.toDateString()}</Text>
+          </TouchableOpacity>
+
+          {showDatePicker && (
+            <DateTimePicker
+              value={date}
+              mode="date"
+              display="default"
+              onChange={onDateChange} // Menangani perubahan tanggal
+            />
+          )}
         </View>
 
         <View style={styles.inputContainer}>
@@ -71,33 +98,39 @@ const ReturningScreen = ({ navigation }) => {
           <Text style={styles.label}>
             Ruangan Yang Dipinjam <Text style={styles.asterisk}>*</Text>
           </Text>
-          <TextInput style={styles.input} placeholder="Ruangan" />
+          <Picker
+            selectedValue={selectedRoom}
+            style={styles.picker}
+            onValueChange={(itemValue) => setSelectedRoom(itemValue)}
+          >
+            <Picker.Item label="Pilih Ruangan" value="" />
+            <Picker.Item label="Ruang Advancing Class Bukit" value="Ruang Advancing Class Bukit" />
+            <Picker.Item label="Aula Serbaguna Lt.3 Indralaya" value="Aula Serbaguna Lt.3 Indralaya" />
+            <Picker.Item label="Ruang Kelas 4.2 Bukit" value="Ruang Kelas 4.2 Bukit" />
+          </Picker>
         </View>
 
         <View style={styles.inputContainer}>
           <Text style={styles.label}>
             Fakultas <Text style={styles.asterisk}>*</Text>
           </Text>
-          <TextInput style={styles.input} placeholder="Fakultas" />
+          <Picker
+            selectedValue={selectedFaculty}
+            style={styles.picker}
+            onValueChange={(itemValue) => setSelectedFaculty(itemValue)}
+          >
+            <Picker.Item label="Pilih Fakultas" value="" />
+            <Picker.Item label="Fakultas Ilmu Komputer" value="Fakultas Ilmu Komputer" />
+            <Picker.Item label="Fakultas Ekonomi" value="Fakultas Ekonomi" />
+            <Picker.Item label="Fakultas Hukum" value="Fakultas Hukum" />
+            <Picker.Item label="Fakultas Teknik" value="Fakultas Teknik" />
+            <Picker.Item label="Fakultas Kedokteran" value="Fakultas Kedokteran" />
+            <Picker.Item label="Fakultas Pertanian" value="Fakultas Pertanian" />
+          </Picker>
         </View>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>
-            Prodi <Text style={styles.asterisk}>*</Text>
-          </Text>
-          <TextInput style={styles.input} placeholder="Prodi" />
-        </View>
 
-        <View style={styles.inputContainer}>
-          <Text style={styles.label}>
-            Dokumentasi Kegiatan <Text style={styles.asterisk}>*</Text>
-          </Text>
-          <TextInput style={styles.input} placeholder="Dokumentasi Kegiatan" multiline />
-        </View>
-
-        <TouchableOpacity style={styles.submitButton}
-        onPress={handleSuccessScreenReturn}
-        >
+        <TouchableOpacity style={styles.submitButton} onPress={handleSuccessScreenReturn}>
           <Text style={styles.submitText}>SUBMIT</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -163,6 +196,22 @@ const styles = StyleSheet.create({
     color: "#DB0000",
   },
   input: {
+    width: "100%",
+    height: 40,
+    borderColor: "#002071",
+    borderWidth: 2,
+    borderRadius: 4,
+    paddingLeft: 10,
+    marginTop: 5,
+  },
+  datePicker: {
+    width: "100%",
+    marginTop: 5,
+    padding: 10,
+    backgroundColor: "#f0f0f0",
+    borderRadius: 4,
+  },
+  picker: {
     width: "100%",
     height: 40,
     borderColor: "#002071",

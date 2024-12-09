@@ -41,6 +41,7 @@ import FormRentEquipmentFP from "./Pertanian/FormRentEquipmentFP";
 
 import ReturningScreen from "./ReturningScreen/index";
 import SuccessScreenReturn from "./SuccessScreenReturn/index";
+import Notification from "./Notification/index";
 
 
 export {
@@ -77,4 +78,5 @@ export {
   DetailRoomFP,
   FormRentEquipmentFP,
   FormRentFP,
+  Notification,
 };
