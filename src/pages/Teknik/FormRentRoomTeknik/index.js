@@ -3,28 +3,21 @@ import {
   Text,
   View,
   TouchableOpacity,
-  Image,
   TextInput,
+  Image,
   ScrollView,
   Platform,
 } from "react-native";
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker"; // Import Picker
 import arrowLeft from "../../../assets/icons/arrow-left.png";
+import formImage from "../../../assets/images/form-image.png";
 
-const FormRentRoomTeknik = ({ navigation, route }) => {
-  const { image } = route.params;
-
-  // State untuk tanggal
+const FormRentScreen = ({ navigation }) => {
   const [date, setDate] = useState(new Date());
+  const [duration, setDuration] = useState("1"); // Default durasi 1 jam
   const [showDatePicker, setShowDatePicker] = useState(false);
-
-  // Fungsi untuk mengubah tanggal
-  const handleDateChange = (event, selectedDate) => {
-    const currentDate = selectedDate || date;
-    setShowDatePicker(false); // Menutup date picker
-    setDate(currentDate);
-  };
 
   const handleSuccessScreen = () => {
     navigation.navigate("SuccessScreen");
@@ -32,6 +25,12 @@ const FormRentRoomTeknik = ({ navigation, route }) => {
 
   const handleBackButton = () => {
     navigation.goBack();
+  };
+
+  const handleDateChange = (event, selectedDate) => {
+    const currentDate = selectedDate || date;
+    setShowDatePicker(Platform.OS === "ios");
+    setDate(currentDate);
   };
 
   return (
@@ -54,7 +53,7 @@ const FormRentRoomTeknik = ({ navigation, route }) => {
       </View>
 
       {/* Image */}
-      <Image source={image} style={styles.image} />
+      <Image source={formImage} style={styles.image} />
 
       {/* Form Fields */}
       <View style={styles.inputContainer}>
@@ -64,11 +63,7 @@ const FormRentRoomTeknik = ({ navigation, route }) => {
           onPress={() => setShowDatePicker(true)}
         >
           <Text style={styles.inputText}>
-            {date.toLocaleDateString("id-ID", {
-              day: "2-digit",
-              month: "2-digit",
-              year: "numeric",
-            })}
+            {date.toLocaleDateString("en-US")}
           </Text>
         </TouchableOpacity>
         {showDatePicker && (
@@ -89,6 +84,25 @@ const FormRentRoomTeknik = ({ navigation, route }) => {
             placeholder="HH : MM"
             placeholderTextColor="#BAC0CA"
           />
+        </View>
+      </View>
+
+       {/* Duration Picker */}
+       <View style={styles.inputContainer}>
+        <Text style={styles.label}>Durasi Peminjaman (jam)</Text>
+        <View style={styles.inputBox}>
+          <Picker
+            selectedValue={duration}
+            onValueChange={(itemValue) => setDuration(itemValue)}
+            style={styles.picker}
+          >
+            <Picker.Item label="Pilih Durasi" value="" />
+            <Picker.Item label="1 Jam" value="1" />
+            <Picker.Item label="2 Jam" value="2" />
+            <Picker.Item label="3 Jam" value="3" />
+            <Picker.Item label="4 Jam" value="4" />
+            <Picker.Item label="5 Jam" value="5" />
+          </Picker>
         </View>
       </View>
 
@@ -114,7 +128,7 @@ const FormRentRoomTeknik = ({ navigation, route }) => {
   );
 };
 
-export default FormRentRoomTeknik;
+export default FormRentScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -147,6 +161,10 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     borderColor: "#D1D1D1",
     borderWidth: 1,
+    shadowColor: "rgba(0, 0, 0, 0.1)",
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 4,
   },
   formInfo: {
     paddingHorizontal: 16,
@@ -163,7 +181,7 @@ const styles = StyleSheet.create({
     marginTop: 4,
   },
   image: {
-    width: 293,
+    width: "100%",
     height: 178,
     borderRadius: 8,
     alignSelf: "center",
@@ -183,9 +201,12 @@ const styles = StyleSheet.create({
     borderColor: "#545F71",
     borderRadius: 6,
     padding: 12,
-    justifyContent: "center",
   },
   inputText: {
+    color: "#BAC0CA",
+    fontSize: 16,
+  },
+  picker: {
     color: "#002649",
     fontSize: 16,
   },

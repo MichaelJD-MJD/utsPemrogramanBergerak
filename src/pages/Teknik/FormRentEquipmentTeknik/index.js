@@ -10,14 +10,15 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
 
-const FormRentEquipmentTeknik = ({ navigation, route }) => {
+const FormRentEquipmentKedokteran = ({ navigation, route }) => {
   const { image } = route.params;
 
-  // State untuk tanggal dan quantity barang
   const [date, setDate] = useState(new Date());
-  const [quantity, setQuantity] = useState("");  // State untuk jumlah barang yang akan dipinjam
+  const [quantity, setQuantity] = useState("");
+  const [duration, setDuration] = useState("1");
 
   const handleSuccessScreen = () => {
     navigation.navigate("SuccessScreen");
@@ -44,7 +45,7 @@ const FormRentEquipmentTeknik = ({ navigation, route }) => {
   };
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
       {/* Bagian Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.button} onPress={handleBackButton}>
@@ -91,6 +92,23 @@ const FormRentEquipmentTeknik = ({ navigation, route }) => {
       </View>
 
       <View style={styles.inputContainer}>
+        <Text style={styles.label}>Durasi Peminjaman (jam)</Text>
+        <View style={styles.inputBox}>
+          <Picker
+            selectedValue={duration}
+            onValueChange={(itemValue) => setDuration(itemValue)}
+            style={styles.picker}
+          >
+            <Picker.Item label="1 Jam" value="1" />
+            <Picker.Item label="2 Jam" value="2" />
+            <Picker.Item label="3 Jam" value="3" />
+            <Picker.Item label="4 Jam" value="4" />
+            <Picker.Item label="5 Jam" value="5" />
+          </Picker>
+        </View>
+      </View>
+
+      <View style={styles.inputContainer}>
         <Text style={styles.label}>Tujuan</Text>
         <View style={styles.inputBox}>
           <TextInput
@@ -101,7 +119,8 @@ const FormRentEquipmentTeknik = ({ navigation, route }) => {
         </View>
       </View>
 
-      {/* Form Quantity Barang */}
+      
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Jumlah Barang</Text>
         <View style={styles.inputBox}>
@@ -116,6 +135,7 @@ const FormRentEquipmentTeknik = ({ navigation, route }) => {
         </View>
       </View>
 
+
       {/* Tombol Buat Surat */}
       <TouchableOpacity
         style={styles.createLetterButton}
@@ -127,17 +147,19 @@ const FormRentEquipmentTeknik = ({ navigation, route }) => {
   );
 };
 
-export default FormRentEquipmentTeknik;
+export default FormRentEquipmentKedokteran;
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  scrollContainer: {
+    flexGrow: 1,
     backgroundColor: "white",
+    paddingBottom: 16,
   },
   header: {
     flexDirection: "row",
     alignItems: "center",
     marginTop: 50,
+    paddingHorizontal: 16,
   },
   arrowIcon: {
     width: 20,
@@ -201,11 +223,15 @@ const styles = StyleSheet.create({
     color: "#002649",
     fontSize: 16,
   },
+  picker: {
+    color: "#002649",
+    fontSize: 16,
+  },
   createLetterButton: {
     backgroundColor: "#FFC727",
     borderRadius: 6,
     paddingVertical: 12,
-    margin: 16,
+    marginHorizontal: 16,
     alignItems: "center",
   },
   createLetterButtonText: {
