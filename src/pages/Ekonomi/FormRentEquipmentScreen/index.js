@@ -39,7 +39,7 @@ const FormRentScreen = ({ navigation }) => {
       {/* Form Info */}
       <View style={styles.formInfo}>
         <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.faculty}>Fakultas Ekonomi</Text>
       </View>
 
       {/* Image */}

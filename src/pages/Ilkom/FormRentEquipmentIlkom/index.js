@@ -6,16 +6,19 @@ import {
   TextInput,
   Image,
   Platform,
+  ScrollView,
 } from "react-native";
 import React, { useState } from "react";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker";
 import arrowLeft from "../../../assets/icons/arrow-left.png";
 import formSofa from "../../../assets/images/form-sofa.png";
 
 const FormRentEquipmentIlkom = ({ navigation }) => {
-  // State untuk tanggal dan quantity barang
+  // State untuk tanggal, quantity barang, dan durasi peminjaman
   const [date, setDate] = useState(new Date());
   const [quantity, setQuantity] = useState("");  // State untuk jumlah barang yang akan dipinjam
+  const [duration, setDuration] = useState("1");  // State untuk durasi peminjaman
 
   const handleSuccessScreen = () => {
     navigation.navigate("SuccessScreen");
@@ -42,7 +45,7 @@ const FormRentEquipmentIlkom = ({ navigation }) => {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       {/* Bagian Header */}
       <View style={styles.header}>
         <TouchableOpacity style={styles.button} onPress={handleBackButton}>
@@ -114,6 +117,25 @@ const FormRentEquipmentIlkom = ({ navigation }) => {
         </View>
       </View>
 
+      {/* Durasi Peminjaman */}
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Durasi Peminjaman (Hari)</Text>
+        <View style={styles.inputBox}>
+          <Picker
+            selectedValue={duration}
+            style={styles.picker}
+            onValueChange={(itemValue) => setDuration(itemValue)}
+          >
+            <Picker.Item label="1 Hari" value="1" />
+            <Picker.Item label="2 Hari" value="2" />
+            <Picker.Item label="3 Hari" value="3" />
+            <Picker.Item label="4 Hari" value="4" />
+            <Picker.Item label="5 Hari" value="5" />
+            <Picker.Item label="7 Hari" value="7" />
+          </Picker>
+        </View>
+      </View>
+
       {/* Tombol Buat Surat */}
       <TouchableOpacity
         style={styles.createLetterButton}
@@ -121,7 +143,7 @@ const FormRentEquipmentIlkom = ({ navigation }) => {
       >
         <Text style={styles.createLetterButtonText}>Buat Surat</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -198,6 +220,11 @@ const styles = StyleSheet.create({
   inputText: {
     color: "#002649",
     fontSize: 16,
+  },
+  picker: {
+    height: 50,
+    width: "100%",
+    color: "#002649",
   },
   createLetterButton: {
     backgroundColor: "#FFC727",
