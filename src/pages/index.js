@@ -39,6 +39,13 @@ import SelectEquipmentFP from "./Pertanian/SelectEquipmentFP";
 import FormRentFP from "./Pertanian/FormRentFP";
 import FormRentEquipmentFP from "./Pertanian/FormRentEquipmentFP";
 
+// Folder Kedokteran
+import DetailRoomKedokteran from "./Kedokteran/DetailRoomKedokteran"; // Import baru
+import FormRentEquipmentKedokteran from "./Kedokteran/FormRentEquipmentKedokteran"; // Import baru
+import FormRentRoomKedokteran from "./Kedokteran/FormRentRoomKedokteran"; // Import baru
+import SelectEquipmentKedokteran from "./Kedokteran/SelectEquipmentKedokteran"; // Import baru
+import SelectRoomKedokteran from "./Kedokteran/SelectRoomKedokteran"; // Import baru
+
 import ReturningScreen from "./ReturningScreen/index";
 import SuccessScreenReturn from "./SuccessScreenReturn/index";
 import Notification from "./Notification/index";
@@ -78,5 +85,10 @@ export {
   DetailRoomFP,
   FormRentEquipmentFP,
   FormRentFP,
+  DetailRoomKedokteran, // Export baru
+  FormRentEquipmentKedokteran, // Export baru
+  FormRentRoomKedokteran, // Export baru
+  SelectEquipmentKedokteran, // Export baru
+  SelectRoomKedokteran, // Export baru
   Notification,
 };

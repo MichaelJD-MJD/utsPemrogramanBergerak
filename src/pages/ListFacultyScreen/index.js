@@ -37,6 +37,11 @@ const ListFacultyScreen = ({ navigation }) => {
     navigation.navigate("SelectRoomFP");
   };
 
+  // Menambahkan fungsi untuk Fakultas Kedokteran
+  const handleSelectRoomKedokteran = () => {
+    navigation.navigate("SelectRoomKedokteran");
+  };
+
   const handleBackButton = () => {
     navigation.goBack();
   };
@@ -127,16 +132,20 @@ const ListFacultyScreen = ({ navigation }) => {
           </TouchableOpacity>
         </View>
 
-        {/* Card 5 */}
+        {/* Card 5 - Fakultas Kedokteran */}
         <View style={styles.card}>
           <Image style={styles.cardImage} source={fakultasKedokteran} />
           <View style={styles.cardDetails}>
-            <Text style={styles.cardTitle}>Fakultas kedokteran</Text>
+            <Text style={styles.cardTitle}>Fakultas Kedokteran</Text>
             <Text style={styles.cardLocation}>
               Kampus Indralaya dan Palembang
             </Text>
           </View>
-          <TouchableOpacity style={styles.detailButton}>
+          {/* Menambahkan onPress untuk Fakultas Kedokteran */}
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={handleSelectRoomKedokteran}  // Memastikan navigasi ke SelectRoomKedokteran
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
@@ -261,15 +270,16 @@ const styles = StyleSheet.create({
     marginBottom: 15,
     padding: 10,
     shadowColor: "#000",
+    shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
-    shadowRadius: 5,
+    shadowRadius: 4,
     elevation: 2,
   },
   cardImage: {
-    width: 60,
-    height: 60,
-    borderRadius: 30,
-    marginRight: 10,
+    width: 80,
+    height: 80,
+    borderRadius: 10,
+    marginRight: 16,
   },
   cardDetails: {
     flex: 1,
@@ -277,21 +287,21 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 16,
     fontWeight: "600",
-    color: "#101623",
+    color: "#002649",
   },
   cardLocation: {
     fontSize: 12,
-    color: "#717C9F",
+    color: "#8A8A8A",
   },
   detailButton: {
     backgroundColor: "#3470A2",
-    paddingVertical: 5,
-    paddingHorizontal: 10,
-    borderRadius: 5,
+    borderRadius: 20,
+    paddingVertical: 8,
+    paddingHorizontal: 15,
   },
   detailButtonText: {
     color: "white",
-    fontSize: 12,
+    fontSize: 14,
     fontWeight: "500",
   },
 });
