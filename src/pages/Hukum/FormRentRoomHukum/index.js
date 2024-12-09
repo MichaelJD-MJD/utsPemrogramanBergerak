@@ -6,16 +6,18 @@ import {
   TextInput,
   Image,
   ScrollView,
-  Platform
+  Platform,
 } from "react-native";
 import React, { useState } from "react";
 import DateTimePicker from "@react-native-community/datetimepicker";
+import { Picker } from "@react-native-picker/picker"; // Import Picker
 import arrowLeft from "../../../assets/icons/arrow-left.png";
 import formImage from "../../../assets/images/form-image.png";
 
 const FormRentScreen = ({ navigation }) => {
   const [date, setDate] = useState(new Date());
   const [showDatePicker, setShowDatePicker] = useState(false);
+  const [duration, setDuration] = useState(""); // New state for duration
 
   const handleSuccessScreen = () => {
     navigation.navigate("SuccessScreen");
@@ -47,7 +49,7 @@ const FormRentScreen = ({ navigation }) => {
       {/* Form Info */}
       <View style={styles.formInfo}>
         <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.faculty}>Fakultas Hukum</Text>
       </View>
 
       {/* Image */}
@@ -85,6 +87,25 @@ const FormRentScreen = ({ navigation }) => {
         </View>
       </View>
 
+      {/* Duration Picker */}
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Durasi Peminjaman (jam)</Text>
+        <View style={styles.inputBox}>
+          <Picker
+            selectedValue={duration}
+            onValueChange={(itemValue) => setDuration(itemValue)}
+            style={styles.picker}
+          >
+            <Picker.Item label="Pilih Durasi" value="" />
+            <Picker.Item label="1 Jam" value="1" />
+            <Picker.Item label="2 Jam" value="2" />
+            <Picker.Item label="3 Jam" value="3" />
+            <Picker.Item label="4 Jam" value="4" />
+            <Picker.Item label="5 Jam" value="5" />
+          </Picker>
+        </View>
+      </View>
+
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Tujuan</Text>
         <View style={styles.inputBox}>
@@ -95,6 +116,8 @@ const FormRentScreen = ({ navigation }) => {
           />
         </View>
       </View>
+
+      
 
       {/* Tombol Buat Surat */}
       <TouchableOpacity
@@ -183,6 +206,12 @@ const styles = StyleSheet.create({
   },
   inputText: {
     color: "#BAC0CA",
+    fontSize: 16,
+  },
+  picker: {
+    width: "100%",
+    height: 50,
+    color: "#002649",
     fontSize: 16,
   },
   createLetterButton: {

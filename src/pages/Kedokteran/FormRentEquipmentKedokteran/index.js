@@ -92,17 +92,6 @@ const FormRentEquipmentKedokteran = ({ navigation, route }) => {
       </View>
 
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Tujuan</Text>
-        <View style={styles.inputBox}>
-          <TextInput
-            style={styles.inputText}
-            placeholder="Masukkan tujuan"
-            placeholderTextColor="#BAC0CA"
-          />
-        </View>
-      </View>
-
-      <View style={styles.inputContainer}>
         <Text style={styles.label}>Durasi Peminjaman (jam)</Text>
         <View style={styles.inputBox}>
           <Picker
@@ -118,6 +107,19 @@ const FormRentEquipmentKedokteran = ({ navigation, route }) => {
           </Picker>
         </View>
       </View>
+
+      <View style={styles.inputContainer}>
+        <Text style={styles.label}>Tujuan</Text>
+        <View style={styles.inputBox}>
+          <TextInput
+            style={styles.inputText}
+            placeholder="Masukkan tujuan"
+            placeholderTextColor="#BAC0CA"
+          />
+        </View>
+      </View>
+
+      
 
       <View style={styles.inputContainer}>
         <Text style={styles.label}>Jumlah Barang</Text>

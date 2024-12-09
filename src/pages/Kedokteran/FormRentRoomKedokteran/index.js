@@ -49,7 +49,7 @@ const FormRentScreen = ({ navigation }) => {
       {/* Form Info */}
       <View style={styles.formInfo}>
         <Text style={styles.formTitle}>Formulir Peminjaman</Text>
-        <Text style={styles.faculty}>Fakultas Ilmu Komputer</Text>
+        <Text style={styles.faculty}>Fakultas Kedokteran</Text>
       </View>
 
       {/* Image */}
@@ -87,7 +87,8 @@ const FormRentScreen = ({ navigation }) => {
         </View>
       </View>
 
-      <View style={styles.inputContainer}>
+       {/* Duration Picker */}
+       <View style={styles.inputContainer}>
         <Text style={styles.label}>Durasi Peminjaman (jam)</Text>
         <View style={styles.inputBox}>
           <Picker
@@ -95,6 +96,7 @@ const FormRentScreen = ({ navigation }) => {
             onValueChange={(itemValue) => setDuration(itemValue)}
             style={styles.picker}
           >
+            <Picker.Item label="Pilih Durasi" value="" />
             <Picker.Item label="1 Jam" value="1" />
             <Picker.Item label="2 Jam" value="2" />
             <Picker.Item label="3 Jam" value="3" />
