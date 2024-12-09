@@ -86,7 +86,10 @@ const SelectRoomIlkom = ({ navigation }) => {
           >
             {false ? "Available" : "Not Available"}
           </Text>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={() => handleDetailRoomIlkom(selectRoom2)}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>
@@ -101,7 +104,10 @@ const SelectRoomIlkom = ({ navigation }) => {
           >
             {true ? "Available" : "Not Available"}
           </Text>
-          <TouchableOpacity style={styles.detailButton}>
+          <TouchableOpacity
+            style={styles.detailButton}
+            onPress={() => handleDetailRoomIlkom(selectRoom3)}
+          >
             <Text style={styles.detailButtonText}>Detail</Text>
           </TouchableOpacity>
         </View>

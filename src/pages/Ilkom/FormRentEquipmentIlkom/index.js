@@ -119,19 +119,18 @@ const FormRentEquipmentIlkom = ({ navigation }) => {
 
       {/* Durasi Peminjaman */}
       <View style={styles.inputContainer}>
-        <Text style={styles.label}>Durasi Peminjaman (Hari)</Text>
+        <Text style={styles.label}>Durasi Peminjaman (jam)</Text>
         <View style={styles.inputBox}>
           <Picker
             selectedValue={duration}
-            style={styles.picker}
             onValueChange={(itemValue) => setDuration(itemValue)}
+            style={styles.picker}
           >
-            <Picker.Item label="1 Hari" value="1" />
-            <Picker.Item label="2 Hari" value="2" />
-            <Picker.Item label="3 Hari" value="3" />
-            <Picker.Item label="4 Hari" value="4" />
-            <Picker.Item label="5 Hari" value="5" />
-            <Picker.Item label="7 Hari" value="7" />
+            <Picker.Item label="1 Jam" value="1" />
+            <Picker.Item label="2 Jam" value="2" />
+            <Picker.Item label="3 Jam" value="3" />
+            <Picker.Item label="4 Jam" value="4" />
+            <Picker.Item label="5 Jam" value="5" />
           </Picker>
         </View>
       </View>
