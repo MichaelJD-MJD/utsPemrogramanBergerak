@@ -3,11 +3,9 @@ import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity, FlatList } 
 
 const HomeScreen = ({ navigation }) => {
   const data = [
-    { id: "1", room: "Ruangan 001", time: "Hari Ini, 10:09", status: "Sedang Dipinjam" },
-    { id: "2", room: "Ruangan 002", time: "Hari Ini, 11:59", status: "Sedang Dipinjam" },
-    { id: "3", room: "Ruangan 003", time: "Kemarin, 11:59", status: "Selesai Peminjaman" },
-    { id: "4", room: "Ruangan 004", time: "Kemarin, 13:59", status: "Selesai Antrian" },
-    { id: "5", room: "Ruangan 005", time: "Kemarin, 10:50", status: "Selesai Antrian" },
+    { id: "1", room: "Advancing Class", time: "Hari Ini, 10:09", status: "Sedang Dipinjam" },
+    { id: "2", room: "Aula Serba Guna Lt.3", time: "Hari Ini, 11:59", status: "Sedang Dipinjam" },
+    { id: "3", room: "Ruang Kelas 4.2", time: "Kemarin, 11:59", status: "Selesai Peminjaman" },
   ];
 
   const renderItem = ({ item }) => (
